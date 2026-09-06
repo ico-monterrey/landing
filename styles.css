@@ -72,3 +72,53 @@ form .btn{width:100%;margin-top:12px}form small{display:block;text-align:center;
   h1{font-size:clamp(2.8rem,13vw,4.1rem)}h2{font-size:clamp(2.15rem,10vw,3.4rem)}.lead{font-size:1.05rem}.meta{gap:9px 16px}.meta span{font-size:.82rem}
   .location-groups{grid-template-columns:1fr}.map-shell{aspect-ratio:1/1}.map-pin:hover::after,.map-pin:focus-visible::after{display:none}.footer{padding-bottom:95px}
 }
+
+
+/* Globe */
+.globe-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:42px;align-items:center;margin:42px 0 30px}
+.globe-panel{position:relative}
+.globe{
+  position:relative;width:min(520px,86vw);aspect-ratio:1/1;border-radius:50%;
+  margin-inline:auto;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(255,255,255,.26), rgba(255,255,255,0) 24%),
+    radial-gradient(circle at 35% 30%, #0f447f 0%, #0a2d58 58%, #071f41 100%);
+  box-shadow: inset -55px -38px 95px rgba(0,0,0,.32), inset 18px 10px 40px rgba(255,255,255,.08), 0 26px 90px rgba(0,0,0,.18);
+  overflow:hidden;border:1px solid rgba(255,255,255,.14)
+}
+.globe::before{
+  content:"";position:absolute;inset:-2%;
+  background:
+    repeating-radial-gradient(circle at center, transparent 0 14%, rgba(255,255,255,.10) 14.2% 14.7%, transparent 14.8% 20%),
+    repeating-linear-gradient(90deg, transparent 0 11%, rgba(255,255,255,.08) 11.2% 11.7%, transparent 11.8% 20%);
+  opacity:.28;mix-blend-mode:screen
+}
+.globe::after{
+  content:"";position:absolute;inset:0;
+  background: radial-gradient(circle at 25% 28%, rgba(255,255,255,.26), rgba(255,255,255,0) 23%),
+              radial-gradient(circle at 74% 72%, rgba(0,0,0,.28), rgba(0,0,0,0) 33%);
+  pointer-events:none
+}
+.globe-shine{position:absolute;inset:9% 12%;border-radius:50%;border:1px solid rgba(255,255,255,.12);pointer-events:none}
+.globe-note{color:#bdd2ef;font-size:.88rem;max-width:430px}
+.globe-locations{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.globe-locations .location-group{padding:18px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:rgba(255,255,255,.04)}
+.pin-emoji{
+  position:absolute;transform:translate(-50%,-50%);font-size:18px;line-height:1;filter:drop-shadow(0 3px 10px rgba(0,0,0,.36));
+  background:none;border:0;padding:0;cursor:pointer;user-select:none
+}
+.pin-emoji.hidden{display:none}
+.pin-emoji:hover::after,.pin-emoji:focus-visible::after{
+  content:attr(data-label);position:absolute;left:50%;bottom:24px;transform:translateX(-50%);
+  white-space:nowrap;background:#fff;color:var(--navy);padding:7px 10px;border-radius:10px;font-size:.72rem;font-weight:850;
+  box-shadow:0 8px 30px rgba(0,0,0,.2)
+}
+.globe-legend{display:flex;gap:8px;align-items:center;color:#bdd2ef;font-size:.84rem;margin-top:16px}
+.globe-legend i{font-style:normal}
+.world-carousel .carousel-card div{display:flex;align-items:center;gap:8px;font-size:.84rem;font-weight:900;letter-spacing:.04em}
+.world-carousel .flag{font-size:1.08rem}
+@media(max-width:980px){
+  .globe-wrap{grid-template-columns:1fr;gap:26px}
+  .globe{width:min(430px,88vw)}
+  .globe-locations{grid-template-columns:1fr}
+}

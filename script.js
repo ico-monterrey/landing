@@ -48,3 +48,72 @@ if(form){
     }
   });
 }
+
+
+// Rotating globe
+const globeEl = document.querySelector("[data-globe]");
+if (globeEl) {
+  const pins = JSON.parse(globeEl.dataset.points || "[]");
+  let rotation = -20;   // longitude at center
+  const lat0 = 18 * Math.PI / 180; // tilt
+  let dragging = false;
+  let startX = 0;
+  let startRotation = rotation;
+  const R = () => globeEl.clientWidth / 2;
+
+  function project(lat, lon, lon0){
+    const φ = lat * Math.PI / 180;
+    let λ = (lon - lon0) * Math.PI / 180;
+    while (λ > Math.PI) λ -= 2*Math.PI;
+    while (λ < -Math.PI) λ += 2*Math.PI;
+    const cosc = Math.sin(lat0)*Math.sin(φ) + Math.cos(lat0)*Math.cos(φ)*Math.cos(λ);
+    if (cosc <= 0) return null;
+    const x = Math.cos(φ) * Math.sin(λ);
+    const y = Math.cos(lat0)*Math.sin(φ) - Math.sin(lat0)*Math.cos(φ)*Math.cos(λ);
+    return {x, y};
+  }
+
+  function renderGlobe(){
+    const r = R();
+    pins.forEach(pin=>{
+      const el = globeEl.querySelector(`[data-id="${pin.id}"]`);
+      const pos = project(pin.lat, pin.lon, rotation);
+      if(!pos){ el.classList.add("hidden"); return; }
+      el.classList.remove("hidden");
+      el.style.left = `${r + pos.x * r * 0.9}px`;
+      el.style.top  = `${r + pos.y * r * 0.9}px`;
+      const scale = 0.78 + 0.34 * ((pos.x + 1) / 2);
+      el.style.transform = `translate(-50%,-50%) scale(${scale})`;
+      el.style.opacity = String(0.62 + 0.38 * scale);
+    });
+  }
+
+  function onDown(x){
+    dragging = true;
+    startX = x;
+    startRotation = rotation;
+  }
+  function onMove(x){
+    if(!dragging) return;
+    const dx = x - startX;
+    rotation = startRotation - dx * 0.28;
+    renderGlobe();
+  }
+  function onUp(){ dragging = false; }
+
+  globeEl.addEventListener("mousedown", e => onDown(e.clientX));
+  window.addEventListener("mousemove", e => onMove(e.clientX));
+  window.addEventListener("mouseup", onUp);
+  globeEl.addEventListener("touchstart", e => onDown(e.touches[0].clientX), {passive:true});
+  globeEl.addEventListener("touchmove", e => onMove(e.touches[0].clientX), {passive:true});
+  globeEl.addEventListener("touchend", onUp);
+
+  let auto = setInterval(()=>{ if(!dragging){ rotation += 0.35; renderGlobe(); } }, 40);
+  globeEl.addEventListener("mouseenter", ()=>clearInterval(auto));
+  globeEl.addEventListener("mouseleave", ()=>{
+    clearInterval(auto);
+    auto = setInterval(()=>{ if(!dragging){ rotation += 0.35; renderGlobe(); } }, 40);
+  });
+  window.addEventListener("resize", renderGlobe);
+  renderGlobe();
+}

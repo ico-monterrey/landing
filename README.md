@@ -1,40 +1,30 @@
-# ICO Monterrey — Landing multipágina v3
+# ICO Monterrey — Landing multipágina v4
 
-URL de producción:
+URL:
 https://landing.ico-monterrey.workers.dev
 
-## Cambios principales
-- `index.html` ya NO repite el logo oficial dentro del Hero.
-- Navegación optimizada para celular con menú hamburguesa.
-- CTA fijo inferior en móvil.
-- Open Graph + favicon + Apple Touch Icon para mejorar previews al compartir en WhatsApp.
-- OG image: `assets/social/og-ico-monterrey.png`.
-- `mundo.html` incluye mapamundi con ubicaciones y carrusel swipeable.
-- `que-hacemos.html` incorpora ideas de posicionamiento inspiradas en la web oficial de ICO: confianza, relaciones, oportunidades y presencia.
-- Todas las páginas mantienen navegación independiente.
+## Cambios nuevos
+- Preview de WhatsApp optimizado:
+  - `og:image` ahora es **1200x630** en formato horizontal, para que no salga exageradamente grande.
+  - Nueva descripción base más atractiva.
+- `mundo.html` ya no usa mapamundi plano:
+  - ahora tiene un **globo terráqueo interactivo** que gira automáticamente;
+  - también se puede mover con el dedo o con el mouse;
+  - todas las ubicaciones usan el emoji **📍**;
+  - España se agrupa en un solo pin para evitar saturación.
+- El carrusel internacional ahora lleva **banderas junto al lugar**.
+- Sigue siendo un sitio multipágina y mobile-first.
 
-## WhatsApp preview
-El `og:image` apunta a:
-https://landing.ico-monterrey.workers.dev/assets/social/og-ico-monterrey.png
+## Si el preview de WhatsApp no cambia de inmediato
+WhatsApp / Meta guarda caché.
+Después del deploy, prueba compartir:
+https://landing.ico-monterrey.workers.dev/?v=4
 
-Cuando publiques esta versión, WhatsApp/Meta puede mantener en caché el preview anterior durante un rato.
-Si sigues viendo el preview viejo, comparte temporalmente:
-`https://landing.ico-monterrey.workers.dev/?v=2`
-y luego prueba de nuevo la URL normal.
+## Descripción actual (editable)
+Eventos presenciales para practicar comunicación, conocer personas nuevas y retarte a salir de lo habitual.
 
-## Contacto configurado
+## Datos configurados
 - WhatsApp: 528128580742
 - Correo: vargasdiegoalvarez@gmail.com
 - Instagram: https://www.instagram.com/ico_mexico/
 - ICO oficial: https://institutodecomunicacion.com
-
-## Google Sheets
-La conexión base sigue en:
-- `functions/api/register.js`
-- `google-apps-script.js`
-
-Sheet sugerida:
-Fecha | Nombre | Email | WhatsApp | Evento | Fuente | Estado
-
-## Fotos y videos
-Los medios de eventos siguen siendo placeholders. Reemplázalos conservando los nombres de archivo o ajustando las rutas HTML.
