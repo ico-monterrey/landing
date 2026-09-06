@@ -1,27 +1,30 @@
-# ICO Monterrey Landing
+# ICO Monterrey — Landing multipágina
 
-Starter listo para subir a GitHub y desplegar en Cloudflare.
+## Páginas
+- index.html — portada y menú visual de secciones
+- que-hacemos.html
+- experiencia.html
+- que-entrenamos.html
+- historia.html
+- mundo.html
+- evento.html
+- faq.html
 
-## Archivos
-- `index.html` — landing completa.
-- `styles.css` — diseño responsive.
-- `script.js` — timeline, formulario y UI.
-- `assets/` — placeholders que debes reemplazar con fotos/videos reales.
-- `functions/api/register.js` — endpoint preparado para Cloudflare Pages Functions.
-- `google-apps-script.js` — ejemplo para guardar registros en Google Sheets.
+## Datos ya configurados
+- WhatsApp Diego: 528128580742
+- Correo: vargasdiegoalvarez@gmail.com
+- Instagram: https://www.instagram.com/ico_mexico/
+- ICO oficial: https://institutodecomunicacion.com
+- Logo oficial incluido en assets/logo/ico-oficial.png
 
-## IMPORTANTE
-Las imágenes y el video incluidos son **placeholders de prueba**, no fotografías reales de ICO.
+## Assets
+Las fotos y videos restantes son placeholders de prueba. Sustitúyelos conservando el mismo nombre o actualiza las rutas HTML.
 
-## Antes de publicar
-1. Reemplaza logo, fotos y videos en `assets/`.
-2. Cambia el número placeholder de WhatsApp en `script.js`.
-3. Cambia los links `#` de Instagram e ICO.
-4. Configura Google Sheets con los encabezados:
-   `Fecha | Nombre | Email | WhatsApp | Evento | Fuente | Estado`
-5. Copia `google-apps-script.js` a Apps Script y despliega como Web App.
-6. Guarda la URL del Web App en Cloudflare como `GOOGLE_SCRIPT_URL`.
-7. Prueba el formulario antes de compartir la landing.
+## Google Sheets
+Crea una hoja llamada `Registros` con:
+Fecha | Nombre | Email | WhatsApp | Evento | Fuente | Estado
 
-## Nota Cloudflare
-Este starter usa una estructura compatible con Pages Functions (`functions/`). Si decides desplegarlo con Workers + Static Assets, adapta el endpoint a la estructura del Worker antes del deploy.
+Pega `google-apps-script.js` en Apps Script, publica como Web App y guarda la URL en Cloudflare como variable/secreto `GOOGLE_SCRIPT_URL`.
+
+## Cloudflare
+La carpeta `functions/api/register.js` contiene el endpoint del formulario para una configuración compatible con Pages Functions.

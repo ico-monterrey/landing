@@ -1,5 +1,3 @@
-// Cloudflare Worker endpoint: /api/register
-// Configure GOOGLE_SCRIPT_URL as a Cloudflare secret/environment variable.
 export async function onRequestPost(context) {
   try {
     const body = await context.request.json();
