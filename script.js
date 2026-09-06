@@ -1,4 +1,14 @@
 
+const menuBtn = document.querySelector(".menu-toggle");
+const mobileMenu = document.querySelector(".mobile-menu");
+if(menuBtn && mobileMenu){
+  menuBtn.addEventListener("click",()=>{
+    const open = mobileMenu.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    mobileMenu.setAttribute("aria-hidden", open ? "false" : "true");
+  });
+}
+
 const timeline = document.querySelector("#timeline");
 const timelineImage = document.querySelector("#timelineImage");
 if (timeline && timelineImage) {
@@ -10,6 +20,15 @@ if (timeline && timelineImage) {
     timeline.appendChild(b);
   });
 }
+
+document.querySelectorAll("[data-carousel]").forEach(carousel=>{
+  const track = carousel.querySelector(".carousel-track");
+  const prev = carousel.querySelector("[data-prev]");
+  const next = carousel.querySelector("[data-next]");
+  const step = ()=> Math.min(track.clientWidth * .86, 440);
+  prev?.addEventListener("click",()=>track.scrollBy({left:-step(),behavior:"smooth"}));
+  next?.addEventListener("click",()=>track.scrollBy({left:step(),behavior:"smooth"}));
+});
 
 const form=document.querySelector("#registerForm");
 if(form){

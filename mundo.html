@@ -1,12 +1,35 @@
-<!doctype html>
-<html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="ICO Monterrey — eventos presenciales para entrenar comunicación en el mundo real.">
-<title>ICO alrededor del mundo | ICO Monterrey</title><link rel="stylesheet" href="styles.css"></head>
-<body>
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ICO alrededor del mundo | ICO Monterrey</title>
+<meta name="description" content="Explora las ciudades y países donde la comunidad de ICO ha tenido presencia, encuentros y experiencias de comunicación.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/social/apple-touch-icon.png">
+<link rel="canonical" href="https://landing.ico-monterrey.workers.dev/mundo.html">
+<meta property="og:locale" content="es_MX">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ICO Monterrey">
+<meta property="og:title" content="ICO alrededor del mundo | ICO Monterrey">
+<meta property="og:description" content="Explora las ciudades y países donde la comunidad de ICO ha tenido presencia, encuentros y experiencias de comunicación.">
+<meta property="og:url" content="https://landing.ico-monterrey.workers.dev/mundo.html">
+<meta property="og:image" content="https://landing.ico-monterrey.workers.dev/assets/social/og-ico-monterrey.png">
+<meta property="og:image:secure_url" content="https://landing.ico-monterrey.workers.dev/assets/social/og-ico-monterrey.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:alt" content="ICO Monterrey — Instituto de Comunicación">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ICO alrededor del mundo | ICO Monterrey">
+<meta name="twitter:description" content="Explora las ciudades y países donde la comunidad de ICO ha tenido presencia, encuentros y experiencias de comunicación.">
+<meta name="twitter:image" content="https://landing.ico-monterrey.workers.dev/assets/social/og-ico-monterrey.png">
+<link rel="stylesheet" href="styles.css">
+
+</head><body>
 <header class="nav">
-  <a class="brand" href="index.html"><img src="assets/logo/ico-oficial.png" alt="Instituto de Comunicación"></a>
-  <nav>
+  <a class="brand brand-desktop" href="index.html"><img src="assets/logo/ico-oficial.png" alt="Instituto de Comunicación"></a>
+  <a class="brand-mobile" href="index.html"><img src="assets/social/ico-icon-512.png" alt=""><span>ICO Monterrey</span></a>
+  <nav class="desktop-nav">
     <a href="que-hacemos.html">Qué hacemos</a>
     <a href="experiencia.html">Experiencia</a>
     <a href="que-entrenamos.html">Qué entrenamos</a>
@@ -14,33 +37,79 @@
     <a href="mundo.html">ICO en el mundo</a>
     <a href="faq.html">FAQ</a>
   </nav>
-  <a class="btn small" href="evento.html">Quiero ir →</a>
+  <a class="btn small desktop-cta" href="evento.html">Quiero ir →</a>
+  <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
 </header>
+<div class="mobile-menu" aria-hidden="true">
+  <a href="que-hacemos.html">Qué hacemos</a>
+  <a href="experiencia.html">Así se vive</a>
+  <a href="que-entrenamos.html">Qué entrenamos</a>
+  <a href="historia.html">Historia Monterrey</a>
+  <a href="mundo.html">ICO alrededor del mundo</a>
+  <a href="faq.html">Preguntas frecuentes</a>
+  <a class="btn" href="evento.html">QUIERO IR AL EVENTO →</a>
+</div>
 <main>
 <section class="page dark world">
 <a class="back" href="index.html">← Volver al inicio</a>
-<span class="eyebrow">ICO ALREDEDOR DEL MUNDO</span><h1>Una comunidad. Distintas ciudades.<br>La misma intención: comunicar mejor.</h1>
-<div class="flags">🇲🇽 🇪🇸 🇨🇷 🇪🇨 🇵🇪 🇧🇷 🇨🇴 🇻🇪 🇦🇷 🇺🇸 🇩🇪</div>
-<div class="gallery three">
-<figure><img src="assets/internacional/madrid-espana.svg"><figcaption>MADRID, ESPAÑA</figcaption></figure>
-<figure><img src="assets/internacional/frankfurt-alemania.svg"><figcaption>FRANKFURT, ALEMANIA</figcaption></figure>
-<figure><img src="assets/internacional/miami-eeuu.svg"><figcaption>MIAMI, EE. UU.</figcaption></figure>
-<figure><img src="assets/internacional/cdmx-mexico.svg"><figcaption>CDMX, MÉXICO</figcaption></figure>
-<figure><img src="assets/internacional/brasil.svg"><figcaption>BRASIL</figcaption></figure>
-<figure><img src="assets/internacional/colombia.svg"><figcaption>COLOMBIA</figcaption></figure>
+<div class="world-intro"><span class="eyebrow">ICO ALREDEDOR DEL MUNDO</span><h1>Una comunidad. Distintas ciudades.<br>La misma intención: comunicar mejor.</h1>
+<p class="lead">Monterrey forma parte de una comunidad que ha cruzado ciudades, países y culturas.</p></div>
+<div class="map-shell" aria-label="Mapa de ubicaciones de ICO">
+  <img class="map-bg" src="assets/internacional/world-map.svg" alt="">
+  <button class="map-pin here" style="left:22.134%;top:40.906%;" aria-label="Monterrey, México" data-label="Monterrey, México"><span></span></button>
+<button class="map-pin" style="left:22.463%;top:45.219%;" aria-label="CDMX, México" data-label="CDMX, México"><span></span></button>
+<button class="map-pin" style="left:21.292%;top:44.373%;" aria-label="Guadalajara, México" data-label="Guadalajara, México"><span></span></button>
+<button class="map-pin" style="left:48.971%;top:30.747%;" aria-label="Madrid, España" data-label="Madrid, España"><span></span></button>
+<button class="map-pin" style="left:50.602%;top:30.078%;" aria-label="Barcelona, España" data-label="Barcelona, España"><span></span></button>
+<button class="map-pin" style="left:49.895%;top:31.400%;" aria-label="Valencia, España" data-label="Valencia, España"><span></span></button>
+<button class="map-pin" style="left:50.838%;top:31.245%;" aria-label="Mallorca, España" data-label="Mallorca, España"><span></span></button>
+<button class="map-pin" style="left:48.338%;top:32.835%;" aria-label="Andalucía, España" data-label="Andalucía, España"><span></span></button>
+<button class="map-pin" style="left:49.185%;top:28.784%;" aria-label="País Vasco, España" data-label="País Vasco, España"><span></span></button>
+<button class="map-pin" style="left:49.753%;top:29.897%;" aria-label="Aragón, España" data-label="Aragón, España"><span></span></button>
+<button class="map-pin" style="left:50.422%;top:29.937%;" aria-label="Catalunya, España" data-label="Catalunya, España"><span></span></button>
+<button class="map-pin" style="left:26.641%;top:51.774%;" aria-label="Costa Rica" data-label="Costa Rica"><span></span></button>
+<button class="map-pin" style="left:28.203%;top:58.745%;" aria-label="Ecuador" data-label="Ecuador"><span></span></button>
+<button class="map-pin" style="left:28.599%;top:66.929%;" aria-label="Perú" data-label="Perú"><span></span></button>
+<button class="map-pin" style="left:37.046%;top:74.862%;" aria-label="Brasil" data-label="Brasil"><span></span></button>
+<button class="map-pin" style="left:29.424%;top:55.372%;" aria-label="Colombia" data-label="Colombia"><span></span></button>
+<button class="map-pin" style="left:31.416%;top:51.393%;" aria-label="Venezuela" data-label="Venezuela"><span></span></button>
+<button class="map-pin" style="left:33.783%;top:82.485%;" aria-label="Argentina" data-label="Argentina"><span></span></button>
+<button class="map-pin" style="left:27.725%;top:40.854%;" aria-label="Miami, EE. UU." data-label="Miami, EE. UU."><span></span></button>
+<button class="map-pin" style="left:52.412%;top:24.061%;" aria-label="Frankfurt, Alemania" data-label="Frankfurt, Alemania"><span></span></button>
+</div>
+<div class="map-caption"><i></i><span>Monterrey está resaltado. Pasa el cursor por los puntos en computadora; en celular consulta la lista completa debajo.</span></div>
+<div class="location-groups">
+  <div class="location-group"><b>🇲🇽 México</b><span>Monterrey · CDMX · Guadalajara</span></div>
+  <div class="location-group"><b>🇪🇸 España</b><span>Madrid · Barcelona · Valencia · Mallorca · Andalucía · País Vasco · Aragón · Catalunya</span></div>
+  <div class="location-group"><b>🌎 Latinoamérica</b><span>Costa Rica · Ecuador · Perú · Brasil · Colombia · Venezuela · Argentina</span></div>
+  <div class="location-group"><b>🌍 Otras ciudades</b><span>Miami, EE. UU. · Frankfurt, Alemania</span></div>
+</div>
+<div class="carousel-head"><div><span class="eyebrow">EXPERIENCIAS EN DISTINTAS CIUDADES</span><h2>Desliza para recorrerlas.</h2></div>
+<div class="carousel-actions"><button class="carousel-btn" data-prev aria-label="Anterior">←</button><button class="carousel-btn" data-next aria-label="Siguiente">→</button></div></div>
+<div data-carousel>
+  <div class="carousel-track">
+    <article class="carousel-card"><img src="assets/internacional/madrid-espana.svg" alt="Madrid, España"><div>MADRID, ESPAÑA</div></article>
+    <article class="carousel-card"><img src="assets/internacional/frankfurt-alemania.svg" alt="Frankfurt, Alemania"><div>FRANKFURT, ALEMANIA</div></article>
+    <article class="carousel-card"><img src="assets/internacional/miami-eeuu.svg" alt="Miami, Estados Unidos"><div>MIAMI, EE. UU.</div></article>
+    <article class="carousel-card"><img src="assets/internacional/cdmx-mexico.svg" alt="CDMX, México"><div>CDMX, MÉXICO</div></article>
+    <article class="carousel-card"><img src="assets/internacional/brasil.svg" alt="Brasil"><div>BRASIL</div></article>
+    <article class="carousel-card"><img src="assets/internacional/colombia.svg" alt="Colombia"><div>COLOMBIA</div></article>
+  </div>
 </div>
 <blockquote>Monterrey forma parte de una comunidad que ha cruzado ciudades, países y culturas.</blockquote>
 </section>
 </main>
 <footer class="footer">
-  <img class="footer-logo" src="assets/logo/ico-oficial.png" alt="Instituto de Comunicación">
-  <p>ICO Monterrey · Comunidad local del Instituto de Comunicación.</p>
-  <p>
-    <a href="https://wa.me/528128580742" target="_blank" rel="noopener">WhatsApp</a> ·
-    <a href="mailto:vargasdiegoalvarez@gmail.com">Correo</a> ·
-    <a href="https://www.instagram.com/ico_mexico/" target="_blank" rel="noopener">Instagram @ico_mexico</a> ·
-    <a href="https://institutodecomunicacion.com" target="_blank" rel="noopener">Conoce más sobre ICO</a>
-  </p>
+  <div class="footer-top">
+    <div><img class="footer-logo" src="assets/logo/ico-oficial.png" alt="Instituto de Comunicación"><p>ICO Monterrey · Comunidad local del Instituto de Comunicación.</p></div>
+    <div class="footer-links">
+      <a href="https://wa.me/528128580742" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:vargasdiegoalvarez@gmail.com">Correo</a>
+      <a href="https://www.instagram.com/ico_mexico/" target="_blank" rel="noopener">Instagram @ico_mexico</a>
+      <a href="https://institutodecomunicacion.com" target="_blank" rel="noopener">Conoce más sobre ICO</a>
+    </div>
+  </div>
   <small>© 2026 ICO Monterrey</small>
 </footer>
+<a class="mobile-sticky-cta" href="evento.html">QUIERO IR AL PRÓXIMO EVENTO →</a>
 <script src="script.js"></script></body></html>

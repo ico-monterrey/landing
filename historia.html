@@ -1,12 +1,35 @@
-<!doctype html>
-<html lang="es"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="ICO Monterrey — eventos presenciales para entrenar comunicación en el mundo real.">
-<title>Historia Monterrey | ICO Monterrey</title><link rel="stylesheet" href="styles.css"></head>
-<body>
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Historia | ICO Monterrey</title>
+<meta name="description" content="Conoce el recorrido de ICO Monterrey: ocho eventos y aproximadamente sesenta asistencias acumuladas.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/assets/social/apple-touch-icon.png">
+<link rel="canonical" href="https://landing.ico-monterrey.workers.dev/historia.html">
+<meta property="og:locale" content="es_MX">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ICO Monterrey">
+<meta property="og:title" content="Historia | ICO Monterrey">
+<meta property="og:description" content="Conoce el recorrido de ICO Monterrey: ocho eventos y aproximadamente sesenta asistencias acumuladas.">
+<meta property="og:url" content="https://landing.ico-monterrey.workers.dev/historia.html">
+<meta property="og:image" content="https://landing.ico-monterrey.workers.dev/assets/social/og-ico-monterrey.png">
+<meta property="og:image:secure_url" content="https://landing.ico-monterrey.workers.dev/assets/social/og-ico-monterrey.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:alt" content="ICO Monterrey — Instituto de Comunicación">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Historia | ICO Monterrey">
+<meta name="twitter:description" content="Conoce el recorrido de ICO Monterrey: ocho eventos y aproximadamente sesenta asistencias acumuladas.">
+<meta name="twitter:image" content="https://landing.ico-monterrey.workers.dev/assets/social/og-ico-monterrey.png">
+<link rel="stylesheet" href="styles.css">
+
+</head><body>
 <header class="nav">
-  <a class="brand" href="index.html"><img src="assets/logo/ico-oficial.png" alt="Instituto de Comunicación"></a>
-  <nav>
+  <a class="brand brand-desktop" href="index.html"><img src="assets/logo/ico-oficial.png" alt="Instituto de Comunicación"></a>
+  <a class="brand-mobile" href="index.html"><img src="assets/social/ico-icon-512.png" alt=""><span>ICO Monterrey</span></a>
+  <nav class="desktop-nav">
     <a href="que-hacemos.html">Qué hacemos</a>
     <a href="experiencia.html">Experiencia</a>
     <a href="que-entrenamos.html">Qué entrenamos</a>
@@ -14,8 +37,18 @@
     <a href="mundo.html">ICO en el mundo</a>
     <a href="faq.html">FAQ</a>
   </nav>
-  <a class="btn small" href="evento.html">Quiero ir →</a>
+  <a class="btn small desktop-cta" href="evento.html">Quiero ir →</a>
+  <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
 </header>
+<div class="mobile-menu" aria-hidden="true">
+  <a href="que-hacemos.html">Qué hacemos</a>
+  <a href="experiencia.html">Así se vive</a>
+  <a href="que-entrenamos.html">Qué entrenamos</a>
+  <a href="historia.html">Historia Monterrey</a>
+  <a href="mundo.html">ICO alrededor del mundo</a>
+  <a href="faq.html">Preguntas frecuentes</a>
+  <a class="btn" href="evento.html">QUIERO IR AL EVENTO →</a>
+</div>
 <main>
 <section class="page light">
 <a class="back" href="index.html">← Volver al inicio</a>
@@ -28,14 +61,16 @@
 </section>
 </main>
 <footer class="footer">
-  <img class="footer-logo" src="assets/logo/ico-oficial.png" alt="Instituto de Comunicación">
-  <p>ICO Monterrey · Comunidad local del Instituto de Comunicación.</p>
-  <p>
-    <a href="https://wa.me/528128580742" target="_blank" rel="noopener">WhatsApp</a> ·
-    <a href="mailto:vargasdiegoalvarez@gmail.com">Correo</a> ·
-    <a href="https://www.instagram.com/ico_mexico/" target="_blank" rel="noopener">Instagram @ico_mexico</a> ·
-    <a href="https://institutodecomunicacion.com" target="_blank" rel="noopener">Conoce más sobre ICO</a>
-  </p>
+  <div class="footer-top">
+    <div><img class="footer-logo" src="assets/logo/ico-oficial.png" alt="Instituto de Comunicación"><p>ICO Monterrey · Comunidad local del Instituto de Comunicación.</p></div>
+    <div class="footer-links">
+      <a href="https://wa.me/528128580742" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:vargasdiegoalvarez@gmail.com">Correo</a>
+      <a href="https://www.instagram.com/ico_mexico/" target="_blank" rel="noopener">Instagram @ico_mexico</a>
+      <a href="https://institutodecomunicacion.com" target="_blank" rel="noopener">Conoce más sobre ICO</a>
+    </div>
+  </div>
   <small>© 2026 ICO Monterrey</small>
 </footer>
+<a class="mobile-sticky-cta" href="evento.html">QUIERO IR AL PRÓXIMO EVENTO →</a>
 <script src="script.js"></script></body></html>
