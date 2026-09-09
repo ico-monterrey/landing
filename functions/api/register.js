@@ -1,0 +1,1 @@
+export async function onRequestPost(context) { return new Response(JSON.stringify({ ok: false, message: 'Configura aquí tu conexión con Google Sheets' }), { headers: { 'content-type': 'application/json' } }); }
