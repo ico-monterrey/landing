@@ -27,3 +27,38 @@ if(timeline&&timelineImage&&timelinePlace){
   });
 }
 document.querySelectorAll('[data-carousel]').forEach(carousel=>{const track=carousel.querySelector('.carousel-track');const prev=carousel.querySelector('[data-prev]');const next=carousel.querySelector('[data-next]');const step=()=>Math.min(track.clientWidth*.86,440);prev?.addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));next?.addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));});const form=document.querySelector('#registerForm');if(form){const status=document.querySelector('#formStatus');form.addEventListener('submit',async e=>{e.preventDefault();status.textContent='Registrando...';const payload=Object.fromEntries(new FormData(form));if(payload.website){status.textContent='';return;}try{const r=await fetch('/api/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});if(!r.ok)throw new Error('bad');status.textContent='✅ ¡Listo! Tu registro quedó confirmado.';form.reset();}catch{status.textContent='La conexión con Google Sheets todavía no está configurada.';}});}
+
+/* ===== V7.3: autoplay de dinámicas ===== */
+function tryDynamicAutoplay() {
+  document.querySelectorAll('.auto-dynamic-video').forEach(video => {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    const attempt = () => {
+      const promise = video.play();
+      if (promise && typeof promise.catch === 'function') {
+        promise.catch(() => {
+          /* Safari puede bloquear autoplay en algunos modos del sistema.
+             El poster real queda visible en lugar de un cuadro gris. */
+        });
+      }
+    };
+    if (video.readyState >= 2) attempt();
+    else video.addEventListener('canplay', attempt, { once: true });
+  });
+}
+document.addEventListener('DOMContentLoaded', tryDynamicAutoplay);
+window.addEventListener('pageshow', tryDynamicAutoplay);
+
+/* El mapa es más ancho en móvil para que los países y pines sí se lean. */
+function positionWorldMap() {
+  const scroller = document.querySelector('[data-world-map-scroll]');
+  if (!scroller) return;
+  if (window.matchMedia('(max-width: 980px)').matches && scroller.scrollLeft === 0) {
+    /* Abre mostrando América + Europa, donde están todas las ubicaciones ICO. */
+    scroller.scrollLeft = 105;
+  }
+}
+window.addEventListener('DOMContentLoaded', positionWorldMap);
+window.addEventListener('pageshow', positionWorldMap);
