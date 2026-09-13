@@ -51,14 +51,4 @@ function tryDynamicAutoplay() {
 document.addEventListener('DOMContentLoaded', tryDynamicAutoplay);
 window.addEventListener('pageshow', tryDynamicAutoplay);
 
-/* El mapa es más ancho en móvil para que los países y pines sí se lean. */
-function positionWorldMap() {
-  const scroller = document.querySelector('[data-world-map-scroll]');
-  if (!scroller) return;
-  if (window.matchMedia('(max-width: 980px)').matches && scroller.scrollLeft === 0) {
-    /* Abre mostrando América + Europa, donde están todas las ubicaciones ICO. */
-    scroller.scrollLeft = 105;
-  }
-}
-window.addEventListener('DOMContentLoaded', positionWorldMap);
-window.addEventListener('pageshow', positionWorldMap);
+
