@@ -29,3 +29,31 @@ if ('IntersectionObserver' in window) {
 } else {
   revealItems.forEach(item => item.classList.add('visible'));
 }
+
+
+// Evidence tabs
+const evidenceTabs = document.querySelectorAll('[data-evidence-tab]');
+const evidencePanels = document.querySelectorAll('[data-evidence-panel]');
+if (evidenceTabs.length && evidencePanels.length) {
+  evidenceTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.evidenceTab;
+      evidenceTabs.forEach(t => t.classList.toggle('active', t === tab));
+      evidencePanels.forEach(panel => panel.classList.toggle('active', panel.dataset.evidencePanel === target));
+    });
+  });
+}
+
+// Reinforce muted inline autoplay for evidence videos
+function startEvidenceVideos() {
+  document.querySelectorAll('.evidence-video video').forEach(video => {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    const p = video.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  });
+}
+document.addEventListener('DOMContentLoaded', startEvidenceVideos);
+window.addEventListener('pageshow', startEvidenceVideos);
