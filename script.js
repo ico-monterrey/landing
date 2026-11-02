@@ -25,6 +25,15 @@ function ensureV91Styles(){
 }
 ensureV91Styles();
 
+function ensureV10Styles(){
+  if(document.querySelector('link[href*="v10.css"]')) return;
+  const link=document.createElement('link');
+  link.rel='stylesheet';
+  link.href='v10.css?v=10.0';
+  document.head.appendChild(link);
+}
+ensureV10Styles();
+
 function v8Icon(name){
   return '<span class="ico-line ico-'+name+'" aria-hidden="true"></span>';
 }
@@ -190,8 +199,56 @@ function initSmartStickyCTA(){
   update();
 }
 
+
+function initHistoryBackV10(){
+  const isHome=location.pathname.endsWith('/index.html') || location.pathname.endsWith('/');
+  const homeScrollKey='ico-home-scroll-v10';
+  const restoreKey='ico-restore-home-v10';
+
+  if(isHome){
+    if(sessionStorage.getItem(restoreKey)==='1'){
+      const saved=parseInt(sessionStorage.getItem(homeScrollKey)||'0',10);
+      sessionStorage.removeItem(restoreKey);
+      requestAnimationFrame(()=>requestAnimationFrame(()=>window.scrollTo({top:saved,behavior:'auto'})));
+    }
+
+    document.addEventListener('click',e=>{
+      const link=e.target.closest('a[href]');
+      if(!link) return;
+      const href=link.getAttribute('href')||'';
+      if(!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+      sessionStorage.setItem(homeScrollKey,String(window.scrollY));
+    });
+  }
+
+  document.querySelectorAll('a.back, .bottom-home-v74 a[href="index.html"]').forEach(link=>{
+    link.textContent='← Regresar';
+    link.setAttribute('aria-label','Regresar a la página anterior');
+
+    if(link.dataset.v10BackReady==='true') return;
+    link.dataset.v10BackReady='true';
+
+    link.addEventListener('click',e=>{
+      const ref=document.referrer;
+      let sameOrigin=false;
+      try{
+        sameOrigin=!!ref && new URL(ref).origin===location.origin;
+      }catch{}
+
+      if(sameOrigin && history.length>1){
+        e.preventDefault();
+        history.back();
+        return;
+      }
+
+      sessionStorage.setItem(restoreKey,'1');
+    });
+  });
+}
+
 applyV8VisualSystem();
 upgradeFooterV9();
+initHistoryBackV10();
 
 const menuBtn=document.querySelector('.menu-toggle');
 const mobileMenu=document.querySelector('.mobile-menu');
@@ -283,10 +340,12 @@ document.addEventListener('DOMContentLoaded',()=>{
   applyV8VisualSystem();
   upgradeFooterV9();
   initSmartStickyCTA();
+  initHistoryBackV10();
   tryDynamicAutoplay();
 });
 window.addEventListener('pageshow',()=>{
   applyV8VisualSystem();
   upgradeFooterV9();
+  initHistoryBackV10();
   tryDynamicAutoplay();
 });

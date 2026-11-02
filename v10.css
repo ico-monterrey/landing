@@ -1,0 +1,186 @@
+/* ===== ICO MONTERREY V10 ===== */
+
+/* 01 — QUÉ HACEMOS */
+.what-v10{
+  background:
+    radial-gradient(circle at 92% 5%,rgba(36,117,245,.08),transparent 28rem),
+    #fff;
+}
+.what-v10 h1{max-width:980px}
+.what-intro-v10{max-width:830px;margin-top:24px}
+
+.what-cards-v10{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin:46px 0 72px;
+}
+.what-cards-v10 article{
+  min-height:290px;
+  display:flex;
+  flex-direction:column;
+  padding:30px;
+  border:1px solid #dce7f3;
+  border-radius:26px;
+  background:#fff;
+  box-shadow:0 14px 42px rgba(6,38,83,.055);
+}
+.what-icon-v10{
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  margin-bottom:26px;
+  border-radius:17px;
+  background:#eef5ff;
+  color:var(--blue);
+}
+.what-icon-v10 .ico-line{width:25px;height:25px;flex-basis:25px}
+.what-cards-v10 h3{
+  margin:0 0 12px;
+  font-size:clamp(1.55rem,2.2vw,2rem);
+}
+.what-cards-v10 p{
+  margin:auto 0 0;
+  color:var(--muted);
+  font-size:.98rem;
+  line-height:1.65;
+}
+
+.what-impact-v10{
+  max-width:1080px;
+  margin:0 0 72px;
+  padding:12px 0 18px 30px;
+  border-left:4px solid var(--blue);
+}
+.what-impact-v10 p{
+  max-width:980px;
+  margin:10px 0 0;
+  font-family:Georgia,"Times New Roman",serif;
+  color:var(--navy);
+  font-size:clamp(2rem,4.2vw,4.2rem);
+  line-height:1.08;
+  letter-spacing:-.035em;
+}
+
+.ico-box-v10{
+  max-width:1050px;
+  padding:34px;
+  border:1px solid #d9e6f5;
+  border-radius:28px;
+  background:#eef5ff;
+}
+.ico-box-heading-v10{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:18px;
+}
+.ico-box-heading-v10>.ico-line{
+  width:32px;
+  height:32px;
+  flex-basis:32px;
+  margin-top:3px;
+  color:var(--blue);
+}
+.ico-box-heading-v10 h2{
+  margin:4px 0 0;
+  font-size:clamp(1.9rem,3.5vw,3.2rem);
+}
+.ico-box-v10>p{max-width:850px;color:#42566f}
+.ico-facts-v10{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:24px 0;
+}
+.ico-facts-v10>span{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:9px 13px;
+  border:1px solid #d1e0f2;
+  border-radius:999px;
+  background:#fff;
+  color:#36516f;
+  font-size:.84rem;
+  font-weight:800;
+}
+.ico-facts-v10 .ico-line{color:var(--blue)}
+
+/* 02 — EXPERIENCIA */
+.experience-v10{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 92% 2%,rgba(36,117,245,.08),transparent 26rem),
+    #fff;
+  color:var(--ink);
+}
+.experience-v10 .eyebrow{color:var(--blue)}
+.experience-v10 h1{max-width:1050px;color:var(--navy)}
+.experience-split-v10{margin-top:44px}
+.experience-split-v10>img{
+  width:100%;
+  border-radius:26px;
+  box-shadow:0 22px 60px rgba(6,38,83,.12);
+  object-fit:cover;
+}
+.experience-story-v10 p{
+  margin:0;
+  padding:15px 0;
+  border-bottom:1px solid #e4ebf4;
+  color:#41546c;
+}
+.experience-story-v10 p:first-child{border-top:1px solid #e4ebf4}
+.experience-story-v10 strong{color:var(--blue)}
+.experience-gallery-v10{margin-top:30px}
+.experience-gallery-v10 .gallery-media{
+  border:1px solid #e2eaf4;
+  box-shadow:0 16px 46px rgba(6,38,83,.07);
+}
+.experience-quote-v10{
+  max-width:1080px;
+  margin-top:62px;
+  padding:36px 38px;
+  border-left:4px solid var(--blue);
+  border-radius:0 24px 24px 0;
+  background:#eef5ff;
+  color:var(--navy);
+}
+.experience-quote-v10 strong{color:var(--blue)}
+
+.back,
+.bottom-home-v74 a{
+  transition:color .18s ease,border-color .18s ease,transform .18s ease;
+}
+.back:hover,.back:focus-visible{color:var(--navy)}
+.bottom-home-v74 a:hover,.bottom-home-v74 a:focus-visible{
+  border-color:#9dbce4;
+  transform:translateY(-1px);
+}
+
+@media(max-width:980px){
+  .what-cards-v10{
+    grid-template-columns:1fr;
+    gap:14px;
+    margin:34px 0 52px;
+  }
+  .what-cards-v10 article{min-height:0;padding:24px}
+  .what-icon-v10{width:48px;height:48px;margin-bottom:20px}
+  .what-cards-v10 p{margin-top:4px}
+  .what-impact-v10{margin-bottom:52px;padding-left:20px}
+  .ico-box-v10{padding:26px 22px;border-radius:22px}
+  .ico-box-heading-v10{gap:12px}
+  .ico-box-heading-v10>.ico-line{width:27px;height:27px;flex-basis:27px}
+  .ico-facts-v10{flex-direction:column;align-items:flex-start}
+
+  .experience-split-v10{margin-top:32px;gap:28px}
+  .experience-story-v10 p{padding:12px 0}
+  .experience-gallery-v10{margin-top:18px}
+  .experience-quote-v10{
+    margin-top:38px;
+    padding:26px 22px;
+    border-radius:0 20px 20px 0;
+  }
+}
