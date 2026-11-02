@@ -16,6 +16,15 @@ function ensureV9Styles(){
 }
 ensureV9Styles();
 
+function ensureV91Styles(){
+  if(document.querySelector('link[href*="v9-1.css"]')) return;
+  const link=document.createElement('link');
+  link.rel='stylesheet';
+  link.href='v9-1.css?v=9.1';
+  document.head.appendChild(link);
+}
+ensureV91Styles();
+
 function v8Icon(name){
   return '<span class="ico-line ico-'+name+'" aria-hidden="true"></span>';
 }
