@@ -7,6 +7,15 @@ function ensureV8Styles(){
 }
 ensureV8Styles();
 
+function ensureV9Styles(){
+  if(document.querySelector('link[href*="v9.css"]')) return;
+  const link=document.createElement('link');
+  link.rel='stylesheet';
+  link.href='v9.css?v=9.0';
+  document.head.appendChild(link);
+}
+ensureV9Styles();
+
 function v8Icon(name){
   return '<span class="ico-line ico-'+name+'" aria-hidden="true"></span>';
 }
@@ -62,7 +71,118 @@ function applyV8VisualSystem(){
     if(el.innerHTML.includes('✉️')) el.innerHTML=el.innerHTML.replace('✉️',v8Icon('mail'));
   });
 }
+
+function upgradeFooterV9(){
+  const footer=document.querySelector('.footer');
+  if(!footer || footer.dataset.v9Ready==='true') return;
+  footer.dataset.v9Ready='true';
+
+  const first=footer.querySelector('.footer-top > div:first-child');
+  const logo=first?.querySelector('.footer-logo');
+  const copy=first?.querySelector('p');
+
+  if(first && logo){
+    first.classList.add('footer-brand-wrap-v9');
+    logo.src='assets/logo/ico-symbol.png';
+    logo.alt='ICO';
+
+    const identity=document.createElement('div');
+    identity.className='footer-brand-v9';
+
+    const newLogo=logo.cloneNode(true);
+    const wordmark=document.createElement('div');
+    wordmark.className='footer-wordmark-v9';
+    wordmark.innerHTML='<strong>Instituto de Comunicación</strong><span>ICO Monterrey</span>';
+
+    identity.appendChild(newLogo);
+    identity.appendChild(wordmark);
+
+    logo.remove();
+    first.insertBefore(identity,copy || first.firstChild);
+  }
+
+  if(copy){
+    copy.className='footer-brand-copy-v9';
+    copy.textContent='Comunidad local del Instituto de Comunicación en Monterrey.';
+  }
+
+  footer.querySelectorAll('.footer-links a').forEach(a=>{
+    const href=a.getAttribute('href')||'';
+    let label=a.textContent.trim();
+    let icon='';
+
+    if(href.includes('embajador.html')){
+      label='Conoce al embajador';
+      icon='community';
+    }else if(href.includes('wa.me')){
+      label='WhatsApp';
+      icon='message';
+    }else if(href.startsWith('mailto:')){
+      label='Correo electrónico';
+      icon='mail';
+    }else if(href.includes('instagram.com')){
+      label='Instagram';
+      icon='instagram';
+    }else if(href.includes('institutodecomunicacion.com')){
+      label='Conoce más sobre ICO';
+      icon='globe';
+    }
+
+    a.innerHTML=(icon?'<span class="ico-line ico-'+icon+'" aria-hidden="true"></span>':'')+'<span>'+label+'</span>';
+  });
+}
+
+function initSmartStickyCTA(){
+  const sticky=document.querySelector('.mobile-sticky-cta');
+  if(!sticky) return;
+
+  const footer=document.querySelector('.footer');
+  const primary=document.querySelector('.hero-primary-cta');
+  let primaryVisible=!!primary;
+  let footerVisible=false;
+
+  const isMobile=()=>window.matchMedia('(max-width:980px)').matches;
+
+  function update(){
+    if(!isMobile()){
+      sticky.classList.remove('is-visible');
+      return;
+    }
+
+    const enoughScroll=window.scrollY>220;
+    const show=enoughScroll && !primaryVisible && !footerVisible;
+    sticky.classList.toggle('is-visible',show);
+  }
+
+  if('IntersectionObserver' in window){
+    if(primary){
+      const primaryObserver=new IntersectionObserver(entries=>{
+        primaryVisible=entries[0]?.isIntersecting ?? false;
+        update();
+      },{threshold:.12});
+      primaryObserver.observe(primary);
+    }else{
+      primaryVisible=false;
+    }
+
+    if(footer){
+      const footerObserver=new IntersectionObserver(entries=>{
+        footerVisible=entries[0]?.isIntersecting ?? false;
+        update();
+      },{threshold:.03});
+      footerObserver.observe(footer);
+    }
+  }else{
+    primaryVisible=false;
+  }
+
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  update();
+}
+
 applyV8VisualSystem();
+upgradeFooterV9();
 
 const menuBtn=document.querySelector('.menu-toggle');
 const mobileMenu=document.querySelector('.mobile-menu');
@@ -149,11 +269,15 @@ function tryDynamicAutoplay(){
     else video.addEventListener('canplay',attempt,{once:true});
   });
 }
+
 document.addEventListener('DOMContentLoaded',()=>{
   applyV8VisualSystem();
+  upgradeFooterV9();
+  initSmartStickyCTA();
   tryDynamicAutoplay();
 });
 window.addEventListener('pageshow',()=>{
   applyV8VisualSystem();
+  upgradeFooterV9();
   tryDynamicAutoplay();
 });
