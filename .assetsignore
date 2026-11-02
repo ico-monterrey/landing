@@ -1,0 +1,8 @@
+.git/
+.github/
+functions/
+node_modules/
+.wrangler/
+.DS_Store
+wrangler.jsonc
+.assetsignore
