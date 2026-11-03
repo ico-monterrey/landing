@@ -85,3 +85,189 @@
   .experience-copy-v13,.experience-finale-inner-v13{opacity:1;transform:none;filter:none}
   .experience-visual-v13 img{transform:none}
 }
+
+
+/* ===== ICO MONTERREY V13.2 =====
+   Portada móvil compacta + recorrido conectado + fotos sin fondo navy
+*/
+
+/* Fondo limpio para imágenes */
+.experience-visual-v13,
+.experience-visual-landscape-v13{
+  background:#fff;
+}
+
+/* No oscurecer las fotos horizontales */
+.experience-visual-landscape-v13 .experience-image-wash-v13{
+  display:none;
+}
+
+/* Rail de recorrido: desktop queda muy sutil */
+.experience-rail-v132{
+  --rail-x:max(34px,3.2vw);
+}
+
+.experience-rail-v132::before{
+  content:"";
+  position:absolute;
+  z-index:4;
+  top:0;
+  bottom:0;
+  left:var(--rail-x);
+  width:2px;
+  background:linear-gradient(
+    to bottom,
+    rgba(36,117,245,.15),
+    rgba(36,117,245,.58) 8%,
+    rgba(36,117,245,.58) 92%,
+    rgba(36,117,245,.15)
+  );
+  pointer-events:none;
+}
+
+.experience-rail-v132 [data-exp-step],
+.experience-rail-v132 [data-exp-visual]{
+  position:relative;
+}
+
+.experience-rail-v132 [data-exp-step]::before,
+.experience-rail-v132 [data-exp-visual]::before{
+  content:"";
+  position:absolute;
+  z-index:6;
+  top:50%;
+  left:var(--rail-x);
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#fff;
+  border:3px solid var(--blue);
+  transform:translate(-5px,-50%);
+  box-shadow:0 0 0 5px rgba(36,117,245,.08);
+  transition:transform .4s ease,box-shadow .4s ease,background .4s ease;
+  pointer-events:none;
+}
+
+.experience-rail-v132 [data-exp-step].is-active::before,
+.experience-rail-v132 [data-exp-visual].is-active::before{
+  background:var(--blue);
+  transform:translate(-5px,-50%) scale(1.18);
+  box-shadow:0 0 0 8px rgba(36,117,245,.12);
+}
+
+/* La foto final también queda limpia; la imagen misma da el golpe visual */
+.experience-visual-final-v13{
+  background:#fff;
+}
+
+@media(max-width:980px){
+  /* Portada: ya no obliga a recorrer una pantalla casi vacía */
+  .experience-intro-v13{
+    min-height:68svh;
+    padding:64px 24px 72px;
+    justify-content:center;
+  }
+
+  .experience-intro-v13 .back{
+    top:24px;
+  }
+
+  .experience-title-v13{
+    width:100%;
+    text-align:center;
+    font-size:clamp(4.2rem,18vw,6.4rem);
+    line-height:.88;
+    letter-spacing:-.055em;
+  }
+
+  .experience-scroll-cue-v13{
+    bottom:30px;
+    gap:8px;
+  }
+
+  .experience-scroll-cue-v13 i{
+    height:27px;
+  }
+
+  /* Rail móvil: una guía visible, no decorativa */
+  .experience-rail-v132{
+    --rail-x:22px;
+  }
+
+  .experience-rail-v132::before{
+    width:2px;
+    left:var(--rail-x);
+    background:rgba(36,117,245,.32);
+  }
+
+  .experience-rail-v132 [data-exp-step]::before,
+  .experience-rail-v132 [data-exp-visual]::before{
+    left:var(--rail-x);
+    width:11px;
+    height:11px;
+    border-width:2px;
+    transform:translate(-4.5px,-50%);
+  }
+
+  .experience-rail-v132 [data-exp-step].is-active::before,
+  .experience-rail-v132 [data-exp-visual].is-active::before{
+    transform:translate(-4.5px,-50%) scale(1.22);
+  }
+
+  /* Deja espacio para la línea sin mover demasiado el texto */
+  .experience-step-v13{
+    padding-left:46px;
+    padding-right:24px;
+  }
+
+  /* Fotos horizontales: completas y sobre blanco */
+  .experience-visual-landscape-v13{
+    height:auto;
+    min-height:0;
+    max-height:none;
+    padding:54px 0;
+    background:#fff;
+  }
+
+  .experience-visual-landscape-v13 img{
+    width:100%;
+    height:auto;
+    max-height:none;
+    object-fit:contain;
+    background:#fff;
+    transform:scale(1.02);
+  }
+
+  .experience-visual-landscape-v13.is-active img{
+    transform:scale(1);
+  }
+
+  /* El punto queda centrado respecto al bloque de foto */
+  .experience-visual-landscape-v13::before{
+    top:50%;
+  }
+
+  /* La última foto puede ser inmersiva sin meter fondo navy */
+  .experience-visual-final-v13{
+    background:#fff;
+  }
+}
+
+@media(max-width:980px) and (max-height:720px){
+  .experience-intro-v13{
+    min-height:64svh;
+    padding-top:58px;
+    padding-bottom:64px;
+  }
+
+  .experience-title-v13{
+    font-size:clamp(3.7rem,16vw,5.5rem);
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .experience-rail-v132 [data-exp-step]::before,
+  .experience-rail-v132 [data-exp-visual]::before{
+    transition:none!important;
+  }
+}
