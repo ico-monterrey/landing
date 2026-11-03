@@ -274,18 +274,71 @@ if(timeline&&timelineImage&&timelinePlace){
     {id:'jul-2026',label:'JUL',month:'Julio 2026',place:'Parque El Capitán'},
     {id:'ago-2026',label:'AGO',month:'Agosto 2026',place:'Parque Bosques del Valle'}
   ];
-  items.forEach((item,i)=>{
-    const b=document.createElement('button');
-    b.textContent=item.label;
-    if(i===items.length-1)b.classList.add('active');
-    b.addEventListener('click',()=>{
-      timeline.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
-      b.classList.add('active');
-      timelineImage.src='assets/historia/'+item.id+'.jpg';
-      timelineImage.alt=item.month;
-      timelinePlace.innerHTML=v8Icon('location')+'<span>'+item.place+'</span>';
+
+  let activeIndex=0;
+  let timer=null;
+  let timelineVisible=false;
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function renderTimeline(index){
+    activeIndex=(index+items.length)%items.length;
+    const item=items[activeIndex];
+    const buttons=[...timeline.querySelectorAll('button')];
+
+    buttons.forEach((button,i)=>button.classList.toggle('active',i===activeIndex));
+    timelineImage.src='assets/historia/'+item.id+'.jpg';
+    timelineImage.alt=item.month;
+    timelinePlace.innerHTML=v8Icon('location')+'<span>'+item.place+'</span>';
+
+    buttons[activeIndex]?.scrollIntoView({
+      behavior:reduceMotion?'auto':'smooth',
+      block:'nearest',
+      inline:'center'
     });
-    timeline.appendChild(b);
+  }
+
+  function stopTimelineAuto(){
+    if(timer){
+      clearInterval(timer);
+      timer=null;
+    }
+  }
+
+  function startTimelineAuto(){
+    stopTimelineAuto();
+    if(reduceMotion || !timelineVisible || document.hidden) return;
+    timer=setInterval(()=>renderTimeline(activeIndex+1),3200);
+  }
+
+  items.forEach((item,i)=>{
+    const button=document.createElement('button');
+    button.textContent=item.label;
+    button.setAttribute('aria-label',item.month);
+    button.addEventListener('click',()=>{
+      renderTimeline(i);
+      startTimelineAuto();
+    });
+    timeline.appendChild(button);
+  });
+
+  renderTimeline(0);
+
+  const stage=timelineImage.closest('.timeline-stage');
+  if('IntersectionObserver' in window && stage){
+    const observer=new IntersectionObserver(entries=>{
+      timelineVisible=entries[0]?.isIntersecting ?? false;
+      if(timelineVisible) startTimelineAuto();
+      else stopTimelineAuto();
+    },{threshold:.28});
+    observer.observe(stage);
+  }else{
+    timelineVisible=true;
+    startTimelineAuto();
+  }
+
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden) stopTimelineAuto();
+    else startTimelineAuto();
   });
 }
 
