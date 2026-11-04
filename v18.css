@@ -668,3 +668,90 @@
     font-size:.54rem;
   }
 }
+
+
+/* ===== V18.5 — exact emoji-tip anchoring ===== */
+
+/*
+  Geographic logic:
+  - left/top = exact projected coordinate.
+  - the button's CENTER is that coordinate.
+  - the emoji is positioned independently inside the button.
+  - its visual bottom tip is calibrated to land on the center point.
+*/
+
+.world-emoji-pin-v184{
+  width:28px;
+  height:28px;
+  font-size:0;
+  line-height:0;
+  display:block;
+  transform:translate(-50%,-50%);
+  transform-origin:center;
+  overflow:visible;
+}
+
+.world-emoji-glyph-v185{
+  position:absolute;
+  left:50%;
+  top:50%;
+  display:block;
+  font-size:14px;
+  line-height:1;
+  transform:translate(-50%,calc(-100% + 1.25px));
+  transform-origin:50% 100%;
+  pointer-events:none;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.22));
+}
+
+/* Interaction enlarges around the SAME geographic tip. */
+.world-emoji-pin-v184:hover,
+.world-emoji-pin-v184:focus-visible,
+.world-emoji-pin-v184.is-selected{
+  transform:translate(-50%,-50%);
+  filter:none;
+}
+
+.world-emoji-pin-v184:hover .world-emoji-glyph-v185,
+.world-emoji-pin-v184:focus-visible .world-emoji-glyph-v185,
+.world-emoji-pin-v184.is-selected .world-emoji-glyph-v185{
+  transform:translate(-50%,calc(-100% + 1.25px)) scale(1.16);
+  filter:drop-shadow(0 3px 5px rgba(0,0,0,.30));
+}
+
+/* Tooltip now references the coordinate/touch-target, not emoji font metrics. */
+.world-emoji-pin-v184:hover::after,
+.world-emoji-pin-v184:focus-visible::after,
+.world-emoji-pin-v184.is-selected::after{
+  left:50%;
+  bottom:calc(50% + 10px);
+  transform:translateX(-50%);
+}
+
+@media(max-width:980px){
+  .world-emoji-pin-v184{
+    width:26px;
+    height:26px;
+  }
+
+  /*
+    Apple/iOS emoji has a tiny amount of visual padding below the glyph.
+    +1px places the visible red tip exactly on the projected coordinate.
+  */
+  .world-emoji-glyph-v185{
+    font-size:11px;
+    transform:translate(-50%,calc(-100% + 1px));
+  }
+
+  .world-emoji-pin-v184:hover .world-emoji-glyph-v185,
+  .world-emoji-pin-v184:focus-visible .world-emoji-glyph-v185,
+  .world-emoji-pin-v184.is-selected .world-emoji-glyph-v185{
+    transform:translate(-50%,calc(-100% + 1px)) scale(1.16);
+  }
+
+  .world-emoji-pin-v184:hover::after,
+  .world-emoji-pin-v184:focus-visible::after,
+  .world-emoji-pin-v184.is-selected::after{
+    bottom:calc(50% + 8px);
+  }
+}
