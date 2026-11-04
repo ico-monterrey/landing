@@ -525,3 +525,70 @@
     height:18px;
   }
 }
+
+
+/* ===== V18.3 — LITERAL 📍 EMOJI MARKERS ===== */
+
+.world-map-art-v18{
+  position:relative;
+}
+
+.world-emoji-pins-v183{
+  position:absolute;
+  inset:0;
+  z-index:4;
+  pointer-events:none;
+}
+
+.world-emoji-pin-v183{
+  position:absolute;
+  transform:translate(-50%,-88%);
+  padding:0;
+  border:0;
+  background:transparent;
+  font-size:20px;
+  line-height:1;
+  cursor:pointer;
+  pointer-events:auto;
+  filter:drop-shadow(0 3px 5px rgba(0,0,0,.28));
+  transition:transform .16s ease,filter .16s ease;
+}
+
+.world-emoji-pin-v183:hover,
+.world-emoji-pin-v183:focus-visible,
+.world-emoji-pin-v183.is-selected{
+  transform:translate(-50%,-88%) scale(1.18);
+  filter:drop-shadow(0 5px 8px rgba(0,0,0,.34));
+  outline:none;
+}
+
+.world-emoji-pin-v183:hover::after,
+.world-emoji-pin-v183:focus-visible::after,
+.world-emoji-pin-v183.is-selected::after{
+  content:attr(data-label);
+  position:absolute;
+  left:50%;
+  bottom:26px;
+  transform:translateX(-50%);
+  padding:6px 8px;
+  border-radius:8px;
+  background:#fff;
+  color:var(--navy);
+  font-size:.62rem;
+  font-weight:850;
+  white-space:nowrap;
+  box-shadow:0 8px 22px rgba(0,0,0,.20);
+}
+
+@media(max-width:980px){
+  .world-emoji-pin-v183{
+    font-size:17px;
+  }
+
+  .world-emoji-pin-v183:hover::after,
+  .world-emoji-pin-v183:focus-visible::after,
+  .world-emoji-pin-v183.is-selected::after{
+    bottom:22px;
+    font-size:.58rem;
+  }
+}

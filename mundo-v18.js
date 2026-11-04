@@ -1,4 +1,18 @@
 (() => {
+
+  const emojiPins = [...document.querySelectorAll('.world-emoji-pin-v183')];
+  emojiPins.forEach(pin => {
+    pin.addEventListener('click', event => {
+      event.stopPropagation();
+      const selected = pin.classList.contains('is-selected');
+      emojiPins.forEach(item => item.classList.remove('is-selected'));
+      if (!selected) pin.classList.add('is-selected');
+    });
+  });
+
+  document.addEventListener('click', () => {
+    emojiPins.forEach(pin => pin.classList.remove('is-selected'));
+  });
   const map = document.querySelector('.world-map-panel-v18');
   const regions = document.querySelector('.world-regions-v18');
 
