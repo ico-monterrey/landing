@@ -769,3 +769,16 @@
   margin-left:var(--nudge-x);
   margin-top:var(--nudge-y);
 }
+
+
+/* ===== V18.7 — visible marker recalibration ===== */
+/*
+  Stronger visual offsets so the correction is clearly noticeable on mobile.
+  Only Miami, Perú and Colombia use inline --nudge-* values.
+*/
+.world-emoji-pin-v184{
+  --nudge-x:0px;
+  --nudge-y:0px;
+  margin-left:var(--nudge-x);
+  margin-top:var(--nudge-y);
+}
