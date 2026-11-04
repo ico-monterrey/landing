@@ -451,3 +451,47 @@
     transform:none;
   }
 }
+
+
+/* ===== V18.1 refinements ===== */
+
+/* Caption removed from markup; keep hidden defensively. */
+.world-map-caption-v18{
+  display:none!important;
+}
+
+/* Blue landmark icon for "Otros lugares". */
+.world-region-landmark-v181{
+  background:var(--light);
+  color:var(--blue);
+}
+
+.world-region-landmark-v181 svg{
+  width:20px;
+  height:20px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* Give the map a little more breathing room now that the caption is gone. */
+.world-map-art-v18{
+  margin-bottom:4px;
+}
+
+@media(max-width:980px){
+  .world-map-panel-v18{
+    padding-bottom:10px;
+  }
+
+  .world-map-art-v18{
+    margin-bottom:0;
+  }
+
+  .world-region-landmark-v181 svg{
+    width:18px;
+    height:18px;
+  }
+}
