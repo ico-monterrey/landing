@@ -791,3 +791,17 @@
   margin-left:var(--nudge-x);
   margin-top:var(--nudge-y);
 }
+
+
+/* ===== V18.9 — hard reset of marker positioning ===== */
+/*
+  Previous versions used margin-based --nudge variables.
+  Miami and Perú had malformed inline HTML, so Safari ignored those nudges.
+  V18.9 uses direct left/top coordinates only.
+*/
+.world-emoji-pin-v184{
+  --nudge-x:0px!important;
+  --nudge-y:0px!important;
+  margin-left:0!important;
+  margin-top:0!important;
+}
