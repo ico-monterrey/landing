@@ -664,3 +664,93 @@
     transform:none;
   }
 }
+
+
+/* ===== V17.1 refinements ===== */
+
+/* Stats duplicados removidos: el mapa conserva los badges "20 lugares" y "Europa + América". */
+
+/* Cards regionales más limpias: una sola señal visual por card */
+.world-regions-v17{
+  margin-top:22px;
+}
+
+.world-region-v17{
+  min-height:150px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:18px;
+}
+
+.world-region-v17 p{
+  margin:0;
+  font-size:.86rem;
+  line-height:1.5;
+}
+
+.world-region-landmark-v171{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:11px;
+  background:var(--light);
+  color:var(--blue);
+  flex:0 0 34px;
+}
+
+.world-region-landmark-v171 svg{
+  width:19px;
+  height:19px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* Las banderas ya no se repiten dentro de la card */
+.world-flag-row-v17{
+  display:none!important;
+}
+
+/* Pin ligeramente más legible sin verse gigante */
+.world-pin-v17>span{
+  width:11px;
+  height:11px;
+}
+
+@media(max-width:980px){
+  .world-regions-v17{
+    margin-top:18px;
+  }
+
+  .world-region-v17{
+    min-height:146px;
+    gap:15px;
+    padding:16px;
+  }
+
+  .world-region-v17 p{
+    font-size:.75rem;
+    line-height:1.46;
+  }
+
+  .world-region-landmark-v171{
+    width:31px;
+    height:31px;
+    flex-basis:31px;
+    border-radius:10px;
+  }
+
+  .world-region-landmark-v171 svg{
+    width:18px;
+    height:18px;
+  }
+
+  .world-pin-v17>span{
+    width:8px;
+    height:8px;
+  }
+}
