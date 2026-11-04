@@ -1,18 +1,18 @@
 (() => {
   const map = document.querySelector('[data-world-map]');
-  const pins = [...document.querySelectorAll('.world-pin-v17')];
+  const clusters = [...document.querySelectorAll('.world-cluster-v172')];
 
-  pins.forEach(pin => {
-    pin.addEventListener('click', event => {
+  clusters.forEach(cluster => {
+    cluster.addEventListener('click', event => {
       event.stopPropagation();
-      const wasSelected = pin.classList.contains('is-selected');
-      pins.forEach(item => item.classList.remove('is-selected'));
-      if (!wasSelected) pin.classList.add('is-selected');
+      const wasSelected = cluster.classList.contains('is-selected');
+      clusters.forEach(item => item.classList.remove('is-selected'));
+      if (!wasSelected) cluster.classList.add('is-selected');
     });
   });
 
   document.addEventListener('click', () => {
-    pins.forEach(pin => pin.classList.remove('is-selected'));
+    clusters.forEach(cluster => cluster.classList.remove('is-selected'));
   });
 
   // En móvil, oculta temporalmente el CTA mientras el usuario explora

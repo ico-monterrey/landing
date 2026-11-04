@@ -754,3 +754,121 @@
     height:8px;
   }
 }
+
+
+/* ===== V17.2 — CLEAN GLOBE WITH REGIONAL CLUSTERS ===== */
+
+.world-pins-v17,
+.world-pin-v17{display:none!important}
+
+.world-clusters-v172{
+  position:absolute;
+  inset:0;
+  z-index:6;
+  pointer-events:none;
+}
+
+.world-cluster-v172{
+  position:absolute;
+  z-index:7;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+  pointer-events:auto;
+  transform:translate(-50%,-50%);
+}
+
+.world-cluster-dot-v172{
+  position:relative;
+  width:17px;
+  height:17px;
+  display:block;
+  border:3px solid #fff;
+  border-radius:50%;
+  background:var(--blue);
+  box-shadow:0 0 0 7px rgba(36,117,245,.18),0 8px 20px rgba(0,0,0,.26);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+
+.world-cluster-dot-v172::after{
+  content:"";
+  position:absolute;
+  inset:-9px;
+  border:1px solid rgba(142,189,255,.40);
+  border-radius:50%;
+}
+
+.world-cluster-label-v172{
+  padding:5px 8px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:999px;
+  background:rgba(4,28,60,.72);
+  backdrop-filter:blur(9px);
+  -webkit-backdrop-filter:blur(9px);
+  font-size:.66rem;
+  font-weight:850;
+  white-space:nowrap;
+  box-shadow:0 6px 18px rgba(0,0,0,.18);
+}
+
+.world-cluster-v172.is-selected .world-cluster-dot-v172,
+.world-cluster-v172:hover .world-cluster-dot-v172,
+.world-cluster-v172:focus-visible .world-cluster-dot-v172{
+  transform:scale(1.24);
+  box-shadow:0 0 0 9px rgba(36,117,245,.22),0 10px 24px rgba(0,0,0,.30);
+}
+
+/* These are regional anchors on visible land, not exact city pins. */
+.cluster-mexico-v172{left:17.8%;top:43.2%}
+.cluster-spain-v172{left:77.2%;top:29.4%}
+.cluster-latam-v172{left:38.5%;top:67.5%}
+.cluster-others-v172{left:59.5%;top:36.5%}
+
+.cluster-others-v172.is-selected .world-cluster-label-v172{font-size:0}
+.cluster-others-v172.is-selected .world-cluster-label-v172::after{
+  content:"Miami · Alemania";
+  font-size:.66rem;
+}
+
+.world-region-worldmap-v172{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:11px;
+  background:var(--light);
+  color:var(--blue);
+  flex:0 0 34px;
+}
+
+.world-region-worldmap-v172 svg{
+  width:20px;
+  height:20px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.world-region-landmark-v171{display:none!important}
+
+@media(max-width:980px){
+  .world-cluster-dot-v172{
+    width:13px;
+    height:13px;
+    border-width:2px;
+    box-shadow:0 0 0 5px rgba(36,117,245,.18),0 5px 14px rgba(0,0,0,.25);
+  }
+  .world-cluster-dot-v172::after{inset:-7px}
+  .world-cluster-label-v172{padding:4px 7px;font-size:.58rem}
+  .cluster-others-v172.is-selected .world-cluster-label-v172::after{font-size:.58rem}
+  .world-region-worldmap-v172{width:31px;height:31px;flex-basis:31px;border-radius:10px}
+  .world-region-worldmap-v172 svg{width:18px;height:18px}
+}
