@@ -755,3 +755,17 @@
     bottom:calc(50% + 8px);
   }
 }
+
+
+/* ===== V18.6 — final micro calibration for Miami & Perú ===== */
+
+/*
+  Default: no visual offset.
+  Only Miami and Perú receive tiny per-marker nudges from inline CSS vars.
+*/
+.world-emoji-pin-v184{
+  --nudge-x:0px;
+  --nudge-y:0px;
+  margin-left:var(--nudge-x);
+  margin-top:var(--nudge-y);
+}
