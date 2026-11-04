@@ -782,3 +782,12 @@
   margin-left:var(--nudge-x);
   margin-top:var(--nudge-y);
 }
+
+
+/* ===== V18.8 — strong visual correction for 3 markers ===== */
+.world-emoji-pin-v184{
+  --nudge-x:0px;
+  --nudge-y:0px;
+  margin-left:var(--nudge-x);
+  margin-top:var(--nudge-y);
+}
