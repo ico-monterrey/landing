@@ -800,3 +800,12 @@
   margin-left:0!important;
   margin-top:0!important;
 }
+
+
+/* ===== V18.10 — midpoint calibrated direct coordinates ===== */
+.world-emoji-pin-v184{
+  --nudge-x:0px!important;
+  --nudge-y:0px!important;
+  margin-left:0!important;
+  margin-top:0!important;
+}
