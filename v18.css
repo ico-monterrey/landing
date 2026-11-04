@@ -495,3 +495,33 @@
     height:18px;
   }
 }
+
+
+/* ===== V18.2 refinements ===== */
+
+/* Symmetric landmark icon */
+.world-region-landmark-v181{
+  display:none!important;
+}
+
+.world-region-landmark-v182{
+  background:var(--light);
+  color:var(--blue);
+}
+
+.world-region-landmark-v182 svg{
+  width:20px;
+  height:20px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+@media(max-width:980px){
+  .world-region-landmark-v182 svg{
+    width:18px;
+    height:18px;
+  }
+}
