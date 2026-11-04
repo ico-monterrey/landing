@@ -1,0 +1,260 @@
+/* ===== ICO MONTERREY V15 — ICO EN EL MUNDO ===== */
+
+.world-page-v15,
+.world-v15{
+  background:#fff;
+  color:var(--ink);
+}
+
+.world-v15{
+  background:
+    radial-gradient(circle at 88% 4%,rgba(36,117,245,.08),transparent 22%),
+    #fff;
+}
+
+.world-hero-v15{
+  max-width:1080px;
+}
+
+.world-hero-v15 h1{
+  max-width:1000px;
+  color:var(--navy);
+}
+
+.world-hero-v15 .lead{
+  color:#5f7086;
+}
+
+.world-globe-card-v15{
+  margin-top:40px;
+}
+
+.world-globe-card-v15 .globe-section-v74{
+  margin:0;
+}
+
+.world-locations-v15{
+  margin-top:22px;
+  margin-bottom:62px;
+}
+
+.world-locations-v15 .location-group{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  min-height:130px;
+  padding:20px;
+  border:1px solid #dfe7f2;
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 10px 34px rgba(6,38,83,.05);
+}
+
+.world-locations-v15 .location-group b{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--navy);
+  font-size:.92rem;
+}
+
+.world-locations-v15 .location-group span{
+  color:#65758a;
+  line-height:1.45;
+}
+
+.world-gallery-head-v15{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:20px;
+}
+
+.world-gallery-progress-v15{
+  width:120px;
+  height:3px;
+  overflow:hidden;
+  border-radius:999px;
+  background:#e1e9f4;
+}
+
+.world-gallery-progress-v15 span{
+  display:block;
+  width:25%;
+  height:100%;
+  border-radius:inherit;
+  background:var(--blue);
+  transform-origin:left;
+  animation:worldProgressV15 2.2s linear infinite;
+}
+
+@keyframes worldProgressV15{
+  from{transform:translateX(-100%)}
+  to{transform:translateX(400%)}
+}
+
+.world-carousel-v15{
+  overflow:hidden;
+  margin:0 -4px;
+}
+
+.world-carousel-track-v15{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  padding:4px 4px 16px;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+
+.world-carousel-track-v15::-webkit-scrollbar{
+  display:none;
+}
+
+.world-card-v15{
+  flex:0 0 min(390px,32vw);
+  scroll-snap-align:start;
+  overflow:hidden;
+  border:1px solid #dfe7f2;
+  border-radius:24px;
+  background:#fff;
+  box-shadow:0 12px 34px rgba(6,38,83,.06);
+}
+
+.world-card-v15 img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+}
+
+.world-card-v15 div{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  padding:14px 16px 16px;
+  color:var(--navy);
+  font-size:.86rem;
+  font-weight:850;
+}
+
+@media(max-width:980px){
+  .world-v15{
+    padding:42px 18px 56px;
+    background:
+      radial-gradient(circle at 90% 2%,rgba(36,117,245,.10),transparent 16%),
+      #fff;
+  }
+
+  .world-v15 .back{
+    margin-bottom:34px;
+  }
+
+  .world-hero-v15 .eyebrow{
+    display:block;
+    margin-bottom:14px;
+  }
+
+  .world-hero-v15 h1{
+    margin:0;
+    max-width:360px;
+    font-size:clamp(3.05rem,13vw,4.8rem);
+    line-height:.99;
+  }
+
+  .world-hero-v15 .lead{
+    margin-top:22px;
+    max-width:360px;
+    font-size:1.02rem;
+    line-height:1.55;
+  }
+
+  /* El globo conserva contraste, pero la página deja de ser azul completa. */
+  .world-globe-card-v15{
+    margin:34px -6px 0;
+  }
+
+  .world-globe-card-v15 .globe-section-v74{
+    border-radius:26px;
+  }
+
+  .world-locations-v15{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin:20px 0 48px;
+  }
+
+  .world-locations-v15 .location-group{
+    min-height:142px;
+    padding:16px;
+    border-radius:20px;
+    box-shadow:none;
+  }
+
+  .world-locations-v15 .location-group b{
+    font-size:.84rem;
+  }
+
+  .world-locations-v15 .location-group span{
+    font-size:.78rem;
+    line-height:1.42;
+  }
+
+  .world-gallery-head-v15{
+    align-items:center;
+    margin-bottom:16px;
+  }
+
+  .world-gallery-head-v15 .eyebrow{
+    max-width:220px;
+    font-size:.72rem;
+    line-height:1.45;
+  }
+
+  .world-gallery-progress-v15{
+    width:70px;
+  }
+
+  .world-carousel-v15{
+    margin-right:-18px;
+  }
+
+  .world-carousel-track-v15{
+    gap:12px;
+    padding-right:18px;
+  }
+
+  .world-card-v15{
+    flex:0 0 82vw;
+    max-width:340px;
+    border-radius:22px;
+    box-shadow:0 10px 28px rgba(6,38,83,.055);
+  }
+
+  .world-card-v15 img{
+    aspect-ratio:4/3;
+  }
+
+  .world-card-v15 div{
+    padding:13px 14px 15px;
+  }
+}
+
+@media(max-width:370px){
+  .world-locations-v15{
+    grid-template-columns:1fr;
+  }
+
+  .world-locations-v15 .location-group{
+    min-height:auto;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .world-gallery-progress-v15 span{
+    animation:none;
+    transform:none;
+  }
+}
