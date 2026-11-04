@@ -592,3 +592,79 @@
     font-size:.58rem;
   }
 }
+
+
+/* ===== V18.4 — smaller, anchored literal emoji pins ===== */
+
+.world-emoji-pins-v183,
+.world-emoji-pin-v183{
+  display:none!important;
+}
+
+.world-map-art-v18{
+  position:relative;
+}
+
+.world-emoji-pins-v184{
+  position:absolute;
+  inset:0;
+  z-index:4;
+  pointer-events:none;
+}
+
+.world-emoji-pin-v184{
+  position:absolute;
+  padding:0;
+  border:0;
+  background:transparent;
+  font-size:14px;
+  line-height:1;
+  cursor:pointer;
+  pointer-events:auto;
+  transform:translate(-50%,-100%);
+  transform-origin:50% 100%;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.22));
+  transition:transform .15s ease,filter .15s ease;
+}
+
+.world-emoji-pin-v184:hover,
+.world-emoji-pin-v184:focus-visible,
+.world-emoji-pin-v184.is-selected{
+  transform:translate(-50%,-100%) scale(1.18);
+  filter:drop-shadow(0 3px 5px rgba(0,0,0,.30));
+  outline:none;
+  z-index:10;
+}
+
+.world-emoji-pin-v184:hover::after,
+.world-emoji-pin-v184:focus-visible::after,
+.world-emoji-pin-v184.is-selected::after{
+  content:attr(data-label);
+  position:absolute;
+  left:50%;
+  bottom:18px;
+  transform:translateX(-50%);
+  padding:5px 7px;
+  border-radius:7px;
+  background:#fff;
+  color:var(--navy);
+  font-family:Arial,sans-serif;
+  font-size:.58rem;
+  font-weight:850;
+  white-space:nowrap;
+  box-shadow:0 7px 18px rgba(0,0,0,.18);
+}
+
+@media(max-width:980px){
+  .world-emoji-pin-v184{
+    font-size:11px;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.20));
+  }
+
+  .world-emoji-pin-v184:hover::after,
+  .world-emoji-pin-v184:focus-visible::after,
+  .world-emoji-pin-v184.is-selected::after{
+    bottom:15px;
+    font-size:.54rem;
+  }
+}

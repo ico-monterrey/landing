@@ -1,6 +1,6 @@
 (() => {
 
-  const emojiPins = [...document.querySelectorAll('.world-emoji-pin-v183')];
+  const emojiPins = [...document.querySelectorAll('.world-emoji-pin-v184')];
   emojiPins.forEach(pin => {
     pin.addEventListener('click', event => {
       event.stopPropagation();
