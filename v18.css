@@ -802,10 +802,13 @@
 }
 
 
-/* ===== V18.10 — midpoint calibrated direct coordinates ===== */
+/* ===== V18.13 — Costa Rica final calibration ===== */
 .world-emoji-pin-v184{
-  --nudge-x:0px!important;
-  --nudge-y:0px!important;
-  margin-left:0!important;
-  margin-top:0!important;
+  --cr-x:0px;
+  --cr-y:0px;
+}
+
+.world-emoji-pin-v184[aria-label="Costa Rica"]{
+  margin-left:var(--cr-x)!important;
+  margin-top:var(--cr-y)!important;
 }
