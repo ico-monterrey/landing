@@ -885,3 +885,17 @@
   top:50%;
   transform:translate(-50%,calc(-100% + 1px));
 }
+
+
+/* ===== V18.18 — micro-adjustments only ===== */
+.world-emoji-pin-v184{
+  --v1818-x:0px;
+  --v1818-y:0px;
+}
+
+.world-emoji-pin-v184[aria-label="Miami"],
+.world-emoji-pin-v184[aria-label="Perú"],
+.world-emoji-pin-v184[aria-label="Costa Rica"]{
+  margin-left:var(--v1818-x)!important;
+  margin-top:var(--v1818-y)!important;
+}
