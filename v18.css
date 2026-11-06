@@ -812,3 +812,14 @@
   margin-left:var(--cr-x)!important;
   margin-top:var(--cr-y)!important;
 }
+
+/* ===== V18.14 — final Miami + Costa Rica calibration ===== */
+.world-emoji-pin-v184{
+  --v1814-x:0px;
+  --v1814-y:0px;
+}
+.world-emoji-pin-v184[aria-label="Miami"],
+.world-emoji-pin-v184[aria-label="Costa Rica"]{
+  margin-left:var(--v1814-x)!important;
+  margin-top:var(--v1814-y)!important;
+}
