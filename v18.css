@@ -836,3 +836,16 @@
   margin-left:calc(var(--v1814-x, 0px) + var(--v1815-x))!important;
   margin-top:calc(var(--v1814-y, 0px) + var(--v1815-y))!important;
 }
+
+
+/* ===== V18.16 — final Miami + Costa Rica micro-adjustment ===== */
+.world-emoji-pin-v184{
+  --v1816-x:0px;
+  --v1816-y:0px;
+}
+
+.world-emoji-pin-v184[aria-label="Miami"],
+.world-emoji-pin-v184[aria-label="Costa Rica"]{
+  margin-left:calc(var(--v1814-x, 0px) + var(--v1815-x, 0px) + var(--v1816-x))!important;
+  margin-top:calc(var(--v1814-y, 0px) + var(--v1815-y, 0px) + var(--v1816-y))!important;
+}
