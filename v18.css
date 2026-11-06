@@ -849,3 +849,39 @@
   margin-left:calc(var(--v1814-x, 0px) + var(--v1815-x, 0px) + var(--v1816-x))!important;
   margin-top:calc(var(--v1814-y, 0px) + var(--v1815-y, 0px) + var(--v1816-y))!important;
 }
+
+
+/* ===== V18.17 — coordinate system fix ===== */
+/*
+  ROOT FIX:
+  The SVG is now exported on a fixed canvas with no tight bounding-box crop.
+  Every pin's left/top is calculated using the exact Matplotlib transform
+  that draws the map on that same canvas.
+
+  No per-marker manual nudges are used.
+*/
+.world-emoji-pin-v184{
+  --nudge-x:0px!important;
+  --nudge-y:0px!important;
+  --cr-x:0px!important;
+  --cr-y:0px!important;
+  --v1814-x:0px!important;
+  --v1814-y:0px!important;
+  --v1815-x:0px!important;
+  --v1815-y:0px!important;
+  --v1816-x:0px!important;
+  --v1816-y:0px!important;
+  margin-left:0!important;
+  margin-top:0!important;
+}
+
+/* Tip remains the anchor point. */
+.world-emoji-pin-v184{
+  transform:translate(-50%,-50%);
+}
+
+.world-emoji-glyph-v185{
+  left:50%;
+  top:50%;
+  transform:translate(-50%,calc(-100% + 1px));
+}
