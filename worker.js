@@ -45,9 +45,7 @@ async function handleRegister(request) {
       body: JSON.stringify({
         name,
         email,
-        whatsapp,
-        website: '',
-        event: 'ICO Monterrey'
+        whatsapp
       }),
       redirect: 'follow'
     });
@@ -67,7 +65,9 @@ async function handleRegister(request) {
 
     return json({
       ok: true,
-      message: 'Registro confirmado'
+      message: 'Registro confirmado',
+      event: result.event,
+      status: result.status
     });
 
   } catch (error) {
