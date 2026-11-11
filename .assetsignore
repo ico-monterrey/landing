@@ -7,3 +7,5 @@ node_modules/
 wrangler.jsonc
 .assetsignore
 worker.js
+apps-script/
+google-apps-script.js
