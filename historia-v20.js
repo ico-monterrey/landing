@@ -1,0 +1,29 @@
+(()=>{const root=document.querySelector('.history-story-v20'),image=document.querySelector('#historyImageV20'),month=document.querySelector('#historyMonthV20'),year=document.querySelector('#historyYearV20'),place=document.querySelector('#historyPlaceV20'),placeWrap=document.querySelector('#historyPlaceWrapV20'),people=document.querySelector('#historyPeopleV20'),peopleWrap=document.querySelector('#historyPeopleWrapV20'),counter=document.querySelector('#historyCounterV20'),progress=document.querySelector('#historyProgressV20'),track=document.querySelector('#historyMonthTrackV20'),pauseButton=document.querySelector('#historyPauseV20'),card=document.querySelector('#historyCardV20');if(!root||!image||!month||!year||!progress||!track||!card)return;
+const events=[
+{month:'Noviembre',short:'NOV',year:'2025',image:'nov-2025.jpg',place:'Parque Fundidora'},
+{month:'Enero',short:'ENE',year:'2026',image:'ene-2026.jpg',place:'Macroplaza'},
+{month:'Febrero',short:'FEB',year:'2026',image:'feb-2026.jpg',place:'San Pedro de Pinta'},
+{month:'Marzo',short:'MAR',year:'2026',image:'mar-2026.jpg',place:'San Pedro de Pinta'},
+{month:'Abril',short:'ABR',year:'2026',image:'abr-2026.jpg',place:'San Pedro de Pinta'},
+{month:'Mayo',short:'MAY',year:'2026',image:'may-2026.jpg',place:'San Pedro de Pinta'},
+{month:'Julio',short:'JUL',year:'2026',image:'jul-2026.jpg',place:'Parque El Capitán'},
+{month:'Agosto',short:'AGO',year:'2026',image:'ago-2026.jpg',place:'Parque Bosques del Valle'},
+{month:'Septiembre',short:'SEP',year:'2026',image:'sep-2026.jpg',people:'3 asistentes'},
+{month:'Octubre',short:'OCT',year:'2026',image:'oct-2026.jpg',people:'6 asistentes'}];
+const D=4200,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let index=0,timer=null,paused=false,visible=true,sx=null,sy=null,interacting=false,resumeTimer=null;root.style.setProperty('--history-duration',`${D}ms`);
+const segments=events.map((_,i)=>{const s=document.createElement('span');s.className='history-progress-segment-v20';s.dataset.index=i;progress.appendChild(s);return s});
+const chips=events.map((e,i)=>{const b=document.createElement('button');b.type='button';b.className='history-month-chip-v20';b.textContent=`${e.short} ${e.year.slice(2)}`;b.setAttribute('aria-label',`${e.month} ${e.year}`);b.onclick=()=>{temporaryPause();render(i)};track.appendChild(b);return b});
+function updateProgress(){segments.forEach((s,i)=>{s.classList.toggle('is-complete',i<index);s.classList.toggle('is-active',i===index&&!reduce)})}
+function center(){chips[index]?.scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest',inline:'center'})}
+function meta(e){if(e.place){place.textContent=e.place;placeWrap.hidden=false}else placeWrap.hidden=true;if(e.people){people.textContent=e.people;peopleWrap.hidden=false}else peopleWrap.hidden=true}
+function clear(){if(timer){clearTimeout(timer);timer=null}}
+function restart(){clear();if(paused||!visible||reduce||document.hidden||interacting)return;timer=setTimeout(()=>render(index+1),D)}
+function render(next){index=(next+events.length)%events.length;const e=events[index];chips.forEach((c,i)=>c.classList.toggle('is-active',i===index));counter.textContent=`${String(index+1).padStart(2,'0')} / ${String(events.length).padStart(2,'0')}`;month.textContent=e.month;year.textContent=e.year;meta(e);image.classList.add('is-changing');const src=`assets/historia/${e.image}`,pre=new Image();pre.src=src;const swap=()=>{image.src=src;image.alt=`Evento de ICO Monterrey en ${e.month.toLowerCase()} de ${e.year}`;requestAnimationFrame(()=>requestAnimationFrame(()=>image.classList.remove('is-changing')))};if(pre.complete)swap();else{pre.addEventListener('load',swap,{once:true});pre.addEventListener('error',swap,{once:true})}updateProgress();center();restart()}
+function setPaused(v){paused=v;root.classList.toggle('is-paused',paused);pauseButton?.classList.toggle('is-paused',paused);pauseButton?.setAttribute('aria-label',paused?'Reanudar recorrido automático':'Pausar recorrido automático');if(paused)clear();else{updateProgress();restart()}}
+function temporaryPause(){interacting=true;clear();clearTimeout(resumeTimer);resumeTimer=setTimeout(()=>{interacting=false;updateProgress();restart()},1800)}
+pauseButton?.addEventListener('click',()=>setPaused(!paused));
+card.addEventListener('pointerdown',e=>{sx=e.clientX;sy=e.clientY;interacting=true;clear();try{card.setPointerCapture(e.pointerId)}catch{}});
+card.addEventListener('pointerup',e=>{if(sx==null||sy==null)return;const dx=e.clientX-sx,dy=e.clientY-sy;sx=sy=null;interacting=false;if(Math.abs(dx)>42&&Math.abs(dx)>Math.abs(dy)*1.1)render(index+(dx<0?1:-1));else{updateProgress();restart()}});
+card.addEventListener('pointercancel',()=>{sx=sy=null;interacting=false;updateProgress();restart()});
+if('IntersectionObserver'in window){new IntersectionObserver(es=>{visible=es[0]?.isIntersecting??false;if(visible){updateProgress();restart()}else clear()},{threshold:.24}).observe(root)}
+document.addEventListener('visibilitychange',()=>document.hidden?clear():restart());render(0)})();
