@@ -32,3 +32,100 @@
 #historyPeopleWrapV20{
   display:none!important;
 }
+
+
+/* =========================================================
+   V20.6 — PANEL COMPACTO + UBICACIÓN A LA DERECHA
+   ========================================================= */
+
+.history-info-panel-v206{
+  padding:17px 24px 21px!important;
+}
+
+.history-info-top-v206{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:7px;
+}
+
+.history-info-top-v206 > #historyYearV20{
+  flex:0 0 auto;
+  margin:0!important;
+  color:rgba(255,255,255,.72);
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.16em;
+}
+
+.history-place-inline-v206{
+  margin-left:auto;
+  min-width:0;
+  justify-content:flex-end;
+}
+
+.history-place-inline-v206 #historyPlaceWrapV20{
+  min-height:31px;
+  max-width:100%;
+  padding:6px 10px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:999px;
+  white-space:nowrap;
+}
+
+.history-place-inline-v206 #historyPlaceV20{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.history-info-panel-v206 h2{
+  margin:0!important;
+  font-size:clamp(2.65rem,5.5vw,4.55rem)!important;
+  line-height:.93!important;
+}
+
+@media(max-width:980px){
+  .history-info-panel-v206{
+    padding:14px 17px 17px!important;
+  }
+
+  .history-info-top-v206{
+    gap:9px;
+    margin-bottom:5px;
+  }
+
+  .history-info-top-v206 > #historyYearV20{
+    font-size:.67rem;
+  }
+
+  .history-place-inline-v206{
+    max-width:72%;
+  }
+
+  .history-place-inline-v206 #historyPlaceWrapV20{
+    min-height:29px;
+    padding:5px 9px;
+    font-size:.69rem;
+  }
+
+  .history-info-panel-v206 h2{
+    font-size:2.85rem!important;
+  }
+}
+
+@media(max-width:390px){
+  .history-place-inline-v206{
+    max-width:68%;
+  }
+
+  .history-place-inline-v206 #historyPlaceWrapV20{
+    font-size:.64rem;
+  }
+
+  .history-info-panel-v206 h2{
+    font-size:2.65rem!important;
+  }
+}

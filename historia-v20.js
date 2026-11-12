@@ -11,7 +11,7 @@ const events=[
 {month:'Agosto',short:'AGO',year:'2026',image:'ago-2026.jpg',place:'Parque Bosques del Valle'},
 {month:'Septiembre',short:'SEP',year:'2026',image:'sep-2026.jpg',place:'Parque El Capitán'},
 {month:'Octubre',short:'OCT',year:'2026',image:'oct-2026.jpg',place:'Parque Rufino Tamayo'}];
-const D=4200,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let index=0,timer=null,paused=false,visible=true,sx=null,sy=null,interacting=false,resumeTimer=null;root.style.setProperty('--history-duration',`${D}ms`);
+const D=3800,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let index=0,timer=null,paused=false,visible=true,sx=null,sy=null,interacting=false,resumeTimer=null;root.style.setProperty('--history-duration',`${D}ms`);
 const segments=events.map((_,i)=>{const s=document.createElement('span');s.className='history-progress-segment-v20';s.dataset.index=i;progress.appendChild(s);return s});
 const chips=events.map((e,i)=>{const b=document.createElement('button');b.type='button';b.className='history-month-chip-v20';b.textContent=`${e.short} ${e.year.slice(2)}`;b.setAttribute('aria-label',`${e.month} ${e.year}`);b.onclick=()=>{temporaryPause();render(i)};track.appendChild(b);return b});
 function updateProgress(){segments.forEach((s,i)=>{s.classList.toggle('is-complete',i<index);s.classList.toggle('is-active',i===index&&!reduce)})}
