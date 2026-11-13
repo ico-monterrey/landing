@@ -14,6 +14,31 @@
 
   const digitsOnly = value => String(value || '').replace(/\D/g, '');
 
+  function isMexico() {
+    return String(country?.value || '') === '+52';
+  }
+
+  function formatMexico(value) {
+    const d = digitsOnly(value).slice(0, 10);
+    if (d.length <= 2) return d;
+    if (d.length <= 6) return `${d.slice(0,2)} ${d.slice(2)}`;
+    return `${d.slice(0,2)} ${d.slice(2,6)} ${d.slice(6,10)}`;
+  }
+
+  function formatInternational(value) {
+    const d = digitsOnly(value).slice(0, 15);
+    return d.replace(/(\d{3})(?=\d)/g, '$1 ').trim();
+  }
+
+  function applyPhoneFormat() {
+    if (!phoneLocal) return;
+    const formatted = isMexico()
+      ? formatMexico(phoneLocal.value)
+      : formatInternational(phoneLocal.value);
+    phoneLocal.value = formatted;
+    phoneLocal.maxLength = isMexico() ? 12 : 20;
+  }
+
   function setStatus(message, type = '') {
     if (!status) return;
     status.textContent = message;
@@ -26,7 +51,12 @@
     const local = digitsOnly(phoneLocal?.value);
     const allDigits = digitsOnly(dial) + local;
 
-    if (local.length < 7 || allDigits.length > 15) {
+    if (isMexico() && local.length !== 10) {
+      phoneField?.classList.add('is-invalid');
+      return '';
+    }
+
+    if (!isMexico() && (local.length < 7 || allDigits.length > 15)) {
       phoneField?.classList.add('is-invalid');
       return '';
     }
@@ -36,13 +66,18 @@
   }
 
   phoneLocal?.addEventListener('input', () => {
+    applyPhoneFormat();
     phoneField?.classList.remove('is-invalid');
     if (status?.classList.contains('is-error')) setStatus('');
   });
 
   country?.addEventListener('change', () => {
+    applyPhoneFormat();
     phoneField?.classList.remove('is-invalid');
+    if (status?.classList.contains('is-error')) setStatus('');
   });
+
+  applyPhoneFormat();
 
   form.addEventListener('submit', async event => {
     event.preventDefault();
@@ -54,7 +89,7 @@
 
     const fullPhone = buildPhone();
     if (!fullPhone) {
-      setStatus('Revisa tu número de WhatsApp antes de continuar.', 'error');
+      setStatus(isMexico() ? 'Escribe un número de WhatsApp de 10 dígitos.' : 'Revisa tu número de WhatsApp antes de continuar.', 'error');
       phoneLocal?.focus();
       return;
     }
