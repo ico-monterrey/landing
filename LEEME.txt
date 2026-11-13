@@ -1,0 +1,13 @@
+ICO Monterrey V21.6 — PATCH
+
+Reemplaza únicamente:
+- experiencia.html
+- embajador.html
+- faq.html
+
+Cambios:
+1. Así se vive: DESLIZA ahora incluye flecha hacia abajo.
+2. Botones directos de WhatsApp: HABLAR CON EL EMBAJADOR.
+3. Los botones abren WhatsApp con mensaje preescrito para Diego.
+
+No se modifica CSS, JS, Historia, Evento, Qué entrenamos ni Mundo.
