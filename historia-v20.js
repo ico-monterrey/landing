@@ -15,7 +15,11 @@ const D=3800,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let i
 const segments=events.map((_,i)=>{const s=document.createElement('span');s.className='history-progress-segment-v20';s.dataset.index=i;progress.appendChild(s);return s});
 const chips=events.map((e,i)=>{const b=document.createElement('button');b.type='button';b.className='history-month-chip-v20';b.textContent=`${e.short} ${e.year.slice(2)}`;b.setAttribute('aria-label',`${e.month} ${e.year}`);b.onclick=()=>{temporaryPause();render(i)};track.appendChild(b);return b});
 function updateProgress(){segments.forEach((s,i)=>{s.classList.toggle('is-complete',i<index);s.classList.toggle('is-active',i===index&&!reduce)})}
-function center(){chips[index]?.scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest',inline:'center'})}
+function center(){
+const chip=chips[index];if(!chip||!track)return;
+const target=chip.offsetLeft-(track.clientWidth-chip.offsetWidth)/2;
+track.scrollTo({left:Math.max(0,target),behavior:reduce?'auto':'smooth'});
+}
 function meta(e){if(e.place){place.textContent=e.place;placeWrap.hidden=false}else placeWrap.hidden=true}
 function clear(){if(timer){clearTimeout(timer);timer=null}}
 function restart(){clear();if(paused||!visible||reduce||document.hidden||interacting)return;timer=setTimeout(()=>render(index+1),D)}
