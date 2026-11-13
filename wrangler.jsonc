@@ -15,5 +15,8 @@
     "traces": {
       "enabled": true
     }
+  },
+  "vars": {
+    "WHATSAPP_PHONE_NUMBER_ID": "1258284564037339"
   }
 }
