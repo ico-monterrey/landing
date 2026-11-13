@@ -934,3 +934,36 @@
     display:none;
   }
 }
+
+
+/* =========================================================
+   V21.4 — limpieza final embajador
+   ========================================================= */
+
+/* La primera frase es narrativa, no un statement en bold. */
+.ambassador-story-v213 .ambassador-lead-v213{
+  font-weight:400!important;
+  color:#53667e!important;
+  font-size:1.02rem!important;
+  line-height:1.7!important;
+}
+
+/* Una sola etiqueta de rol; sin elementos innecesarios sobre la foto. */
+.ambassador-tags-v213{
+  margin-bottom:18px;
+}
+
+.ambassador-float-photo-v213 figcaption{
+  display:none!important;
+}
+
+.ambassador-signoff-v213{
+  display:none!important;
+}
+
+@media(max-width:980px){
+  .ambassador-story-v213 .ambassador-lead-v213{
+    font-size:.94rem!important;
+    line-height:1.58!important;
+  }
+}
