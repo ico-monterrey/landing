@@ -22,6 +22,7 @@
   <meta name="twitter:image" content="https://landing.ico-monterrey.workers.dev/assets/social/og-icon-v71.png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="v19.css?v=19.0">
+  <link rel="stylesheet" href="v21.css?v=21.0">
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -37,7 +38,7 @@
   }
   </script>
 </head>
-<body class="event-page-v19">
+<body class="event-page-v19 event-page-v21">
 <header class="nav">
   <a class="brand brand-desktop" href="index.html"><img src="assets/logo/ico-oficial.png" alt="Instituto de Comunicación"></a>
   <a class="brand-mobile" href="index.html"><img src="assets/logo/ico-symbol.png" alt="ICO"><span>ICO Monterrey</span></a>
@@ -107,15 +108,55 @@
           <span class="eyebrow">REGISTRO</span>
           <h2>Reserva tu lugar.</h2>
         </div>
-        <form id="registerForm" class="event-form-v19">
+        <form id="registerFormV21" class="event-form-v19 event-form-v21" novalidate>
           <input type="hidden" name="event" value="El Arte de Hablar con Desconocidos | ICO MTY — 14 noviembre 2026">
           <label>Nombre completo<input name="name" autocomplete="name" required></label>
           <label>Correo electrónico<input name="email" type="email" autocomplete="email" required></label>
-          <label>Celular / WhatsApp<input name="whatsapp" type="tel" autocomplete="tel" required></label>
+          <label class="phone-label-v21">
+            Celular / WhatsApp
+            <div class="phone-field-v21" id="phoneFieldV21">
+              <select id="phoneCountryV21" class="phone-country-v21" aria-label="Código de país">
+                <option value="+52" selected>🇲🇽 +52</option>
+                <option value="+1">🇺🇸 +1</option>
+                <option value="+1">🇨🇦 +1</option>
+                <option value="+34">🇪🇸 +34</option>
+                <option value="+57">🇨🇴 +57</option>
+                <option value="+54">🇦🇷 +54</option>
+                <option value="+51">🇵🇪 +51</option>
+                <option value="+506">🇨🇷 +506</option>
+                <option value="+593">🇪🇨 +593</option>
+                <option value="+55">🇧🇷 +55</option>
+                <option value="+58">🇻🇪 +58</option>
+                <option value="+56">🇨🇱 +56</option>
+                <option value="+502">🇬🇹 +502</option>
+                <option value="+503">🇸🇻 +503</option>
+                <option value="+504">🇭🇳 +504</option>
+                <option value="+505">🇳🇮 +505</option>
+                <option value="+507">🇵🇦 +507</option>
+                <option value="+1">🇩🇴 +1</option>
+                <option value="+1">🇵🇷 +1</option>
+                <option value="+49">🇩🇪 +49</option>
+                <option value="+33">🇫🇷 +33</option>
+                <option value="+44">🇬🇧 +44</option>
+                <option value="+39">🇮🇹 +39</option>
+                <option value="+351">🇵🇹 +351</option>
+                <option value="+31">🇳🇱 +31</option>
+                <option value="+41">🇨🇭 +41</option>
+                <option value="+61">🇦🇺 +61</option>
+                <option value="+81">🇯🇵 +81</option>
+              </select>
+              <input id="phoneLocalV21" name="phoneLocal" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="81 1234 5678" required>
+            </div>
+            <input id="whatsappV21" name="whatsapp" type="hidden">
+          </label>
           <input class="trap" name="website" tabindex="-1" autocomplete="off">
-          <button class="btn event-submit-v19" type="submit">QUIERO INSCRIBIRME →</button>
+          <button class="btn event-submit-v19 event-submit-v21" id="registerSubmitV21" type="submit">
+            <span class="submit-label-v21">QUIERO INSCRIBIRME →</span>
+            <span class="submit-loading-v21"><span class="spinner-v21" aria-hidden="true"></span> ENVIANDO TU REGISTRO...</span>
+            <span class="submit-success-v21"><span class="submit-check-v21" aria-hidden="true">✓</span> ¡LISTO! TU LUGAR ESTÁ REGISTRADO</span>
+          </button>
           <small class="event-free-v19"><span aria-hidden="true">✓</span> Evento completamente gratuito</small>
-          <div id="formStatus" role="status"></div>
+          <div id="formStatusV21" class="form-status-v21" role="status" aria-live="polite"></div>
         </form>
       </aside>
     </div>
@@ -140,5 +181,6 @@
 <a class="mobile-sticky-cta" href="#registro">QUIERO INSCRIBIRME →</a>
 <script src="script.js"></script>
 <script src="evento-v19.js?v=19.0"></script>
+<script src="evento-v21.js?v=21.0"></script>
 </body>
 </html>

@@ -1,0 +1,332 @@
+/* =========================================================
+   ICO MONTERREY — V21 FINAL
+   Final polish: home, ambassador, FAQ, training and register
+   ========================================================= */
+
+/* ---------- Embajador ---------- */
+.ambassador-page-v21 .ambassador-v21 h1{
+  max-width:760px;
+}
+
+.amb-grid-v21{
+  grid-template-columns:minmax(280px,.82fr) minmax(0,1.18fr);
+  gap:48px;
+  align-items:center;
+  margin-top:34px;
+}
+
+.amb-photo-v21{
+  width:100%;
+  max-width:430px;
+  margin:0 auto;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:30px;
+  box-shadow:0 22px 60px rgba(6,38,83,.13);
+}
+
+.ambassador-copy-v21{
+  max-width:690px;
+}
+
+.ambassador-copy-v21 p{
+  color:#53667d;
+  line-height:1.68;
+}
+
+.amb-intro-v21{
+  margin-top:0;
+  color:var(--navy)!important;
+  font-size:1.18rem;
+  font-weight:850;
+  line-height:1.5!important;
+}
+
+.ambassador-actions-v21{
+  margin-top:28px;
+}
+
+/* ---------- FAQ ---------- */
+.faq-v21 details{
+  transition:border-color .18s ease,background .18s ease,box-shadow .18s ease;
+}
+
+.faq-v21 details[open]{
+  border-color:#c9daef;
+  background:#fbfdff;
+  box-shadow:0 12px 34px rgba(6,38,83,.045);
+}
+
+.faq-v21 details p{
+  max-width:880px;
+  margin:10px 0 0;
+  color:#53667d;
+  line-height:1.68;
+}
+
+.faq-v21 details p:first-of-type{
+  margin-top:16px;
+}
+
+/* ---------- Qué entrenamos ---------- */
+.conversation-video-v21{
+  aspect-ratio:4/3!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+
+/* ---------- Registro / teléfono ---------- */
+.event-form-v21{
+  position:relative;
+}
+
+.phone-label-v21{
+  gap:7px!important;
+}
+
+.phone-field-v21{
+  display:grid;
+  grid-template-columns:112px minmax(0,1fr);
+  min-height:50px;
+  overflow:hidden;
+  border:1px solid #cfdae8;
+  border-radius:14px;
+  background:#fff;
+  transition:border-color .18s ease,box-shadow .18s ease;
+}
+
+.phone-field-v21:focus-within{
+  border-color:var(--blue);
+  box-shadow:0 0 0 4px rgba(36,117,245,.10);
+}
+
+.phone-country-v21{
+  width:100%;
+  min-width:0;
+  padding:0 10px;
+  border:0;
+  border-right:1px solid #dbe4ef;
+  outline:0;
+  background:#f7faff;
+  color:var(--navy);
+  font:inherit;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.event-form-v19 .phone-field-v21 #phoneLocalV21{
+  width:100%;
+  min-width:0;
+  min-height:48px;
+  padding:0 13px;
+  border:0!important;
+  border-radius:0!important;
+  outline:0;
+  box-shadow:none!important;
+  background:#fff;
+  color:var(--navy);
+  font:inherit;
+  font-size:16px;
+}
+
+.phone-field-v21.is-invalid{
+  border-color:#d84f5f;
+  box-shadow:0 0 0 4px rgba(216,79,95,.10);
+}
+
+/* ---------- Submit button states ---------- */
+.event-submit-v21{
+  position:relative;
+  overflow:hidden;
+  min-height:56px!important;
+  transition:background .24s ease,box-shadow .24s ease,transform .18s ease!important;
+}
+
+.event-submit-v21:active:not(:disabled){
+  transform:scale(.985);
+}
+
+.submit-loading-v21,
+.submit-success-v21{
+  display:none;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+}
+
+.event-submit-v21.is-loading{
+  cursor:wait;
+}
+
+.event-submit-v21.is-loading .submit-label-v21{
+  display:none;
+}
+
+.event-submit-v21.is-loading .submit-loading-v21{
+  display:flex;
+}
+
+.spinner-v21{
+  width:18px;
+  height:18px;
+  flex:0 0 18px;
+  border:2px solid rgba(255,255,255,.42);
+  border-top-color:#fff;
+  border-radius:50%;
+  animation:v21Spin .72s linear infinite;
+}
+
+@keyframes v21Spin{
+  to{transform:rotate(360deg)}
+}
+
+.event-submit-v21.is-success{
+  background:#159b62!important;
+  box-shadow:0 14px 36px rgba(21,155,98,.28)!important;
+  cursor:default;
+}
+
+.event-submit-v21.is-success .submit-label-v21,
+.event-submit-v21.is-success .submit-loading-v21{
+  display:none;
+}
+
+.event-submit-v21.is-success .submit-success-v21{
+  display:flex;
+  animation:v21SuccessIn .34s cubic-bezier(.2,.8,.25,1) both;
+}
+
+.submit-check-v21{
+  width:22px;
+  height:22px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.18);
+  font-size:.9rem;
+}
+
+@keyframes v21SuccessIn{
+  from{opacity:0;transform:translateY(4px) scale(.97)}
+  to{opacity:1;transform:none}
+}
+
+.form-status-v21{
+  min-height:0;
+  margin:0;
+  padding:0;
+  border-radius:12px;
+  font-size:.79rem;
+  font-weight:750;
+  line-height:1.4;
+  text-align:center;
+  transition:.2s ease;
+}
+
+.form-status-v21:not(:empty){
+  margin-top:-3px;
+  padding:9px 11px;
+}
+
+.form-status-v21.is-success{
+  border:1px solid #bde7d2;
+  background:#edf9f3;
+  color:#11784d;
+}
+
+.form-status-v21.is-error{
+  border:1px solid #f0c6cc;
+  background:#fff4f5;
+  color:#a93645;
+}
+
+.event-form-v21.is-success label,
+.event-form-v21.is-success .event-free-v19{
+  opacity:.72;
+}
+
+/* ---------- Mobile ---------- */
+@media(max-width:980px){
+  .ambassador-page-v21 .ambassador-v21{
+    padding-top:42px;
+  }
+
+  .ambassador-page-v21 .ambassador-v21 .back{
+    margin-bottom:30px;
+  }
+
+  .amb-grid-v21{
+    grid-template-columns:1fr;
+    gap:24px;
+    margin-top:28px;
+  }
+
+  .amb-photo-v21{
+    width:min(69vw,270px);
+    max-width:270px;
+    border-radius:24px;
+    box-shadow:0 14px 40px rgba(6,38,83,.11);
+  }
+
+  .ambassador-copy-v21{
+    max-width:420px;
+    margin:0 auto;
+  }
+
+  .amb-intro-v21{
+    font-size:1.08rem;
+    line-height:1.48!important;
+  }
+
+  .ambassador-copy-v21 p{
+    font-size:.98rem;
+    line-height:1.62;
+  }
+
+  .ambassador-actions-v21{
+    margin-top:24px;
+  }
+
+  .faq-v21 details p{
+    font-size:.96rem;
+    line-height:1.62;
+  }
+
+  .conversation-video-v21{
+    aspect-ratio:4/3!important;
+  }
+
+  .phone-field-v21{
+    grid-template-columns:104px minmax(0,1fr);
+  }
+
+  .phone-country-v21{
+    padding-left:8px;
+    padding-right:6px;
+  }
+
+  .event-submit-v21{
+    min-height:58px!important;
+    font-size:.78rem!important;
+  }
+}
+
+@media(max-width:370px){
+  .phone-field-v21{
+    grid-template-columns:96px minmax(0,1fr);
+  }
+
+  .phone-country-v21{
+    font-size:15px;
+  }
+
+  .submit-success-v21{
+    font-size:.69rem;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .spinner-v21{animation-duration:1.2s}
+  .event-submit-v21.is-success .submit-success-v21{animation:none}
+}
