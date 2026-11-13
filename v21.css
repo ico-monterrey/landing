@@ -576,3 +576,89 @@
     line-height:1.35;
   }
 }
+
+
+/*
+   V21.2 — micro ajustes finales
+   - registro: sin placeholder visible, un solo estado de éxito
+   - embajador: foto más compacta y editorial, sin “por qué lo hago”
+*/
+.form-status-v21:empty{display:none!important}
+.event-submit-v21.is-success .submit-success-v21{letter-spacing:.01em}
+
+.ambassador-stage-v212{
+  display:block;
+  margin-top:30px;
+}
+
+.ambassador-copy-v212{
+  max-width:860px;
+  margin:0 auto;
+  padding:34px 34px 30px;
+  overflow:hidden;
+}
+
+.ambassador-inline-photo-v212{
+  position:relative;
+  float:right;
+  width:min(34vw,255px);
+  margin:4px 0 18px 26px;
+}
+
+.ambassador-inline-photo-v212 .amb-photo-v21{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  object-position:center 18%;
+  border-radius:26px;
+  box-shadow:0 18px 44px rgba(6,38,83,.16);
+}
+
+.ambassador-photo-badge-v212{
+  left:14px;
+  right:14px;
+  bottom:14px;
+  min-height:56px;
+  padding:10px 12px;
+  border-radius:18px;
+}
+
+.ambassador-copy-v212 .amb-intro-v211{
+  margin-top:0!important;
+}
+
+.ambassador-copy-v212 .ambassador-actions-v21{
+  clear:both;
+  margin-top:22px;
+}
+
+@media(max-width:980px){
+  .ambassador-copy-v212{
+    padding:22px 18px 22px;
+  }
+
+  .ambassador-inline-photo-v212{
+    width:min(41vw,190px);
+    margin:2px 0 14px 14px;
+  }
+
+  .ambassador-inline-photo-v212 .amb-photo-v21{
+    border-radius:22px;
+  }
+
+  .ambassador-photo-badge-v212{
+    left:10px;
+    right:10px;
+    bottom:10px;
+    min-height:52px;
+    padding:9px 11px;
+  }
+
+  .ambassador-photo-badge-v212 small{
+    font-size:.58rem;
+  }
+
+  .ambassador-photo-badge-v212 strong{
+    font-size:.9rem;
+  }
+}

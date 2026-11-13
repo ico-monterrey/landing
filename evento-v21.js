@@ -132,7 +132,7 @@
         control.disabled = true;
       });
 
-      setStatus('Registro confirmado. Nos vemos en el evento.', 'success');
+      setStatus('');
 
     } catch (error) {
       sending = false;
