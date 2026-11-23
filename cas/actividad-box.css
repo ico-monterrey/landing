@@ -41,7 +41,15 @@
 .box-reflection-layout{display:grid;grid-template-columns:minmax(320px,.82fr) minmax(0,1.18fr);gap:28px;align-items:start}
 .box-video-sticky{position:sticky;top:98px}
 .box-video-sticky figure{margin:0;border:1px solid var(--line);border-radius:26px;overflow:hidden;background:#080a0d;box-shadow:var(--shadow)}
-.box-video-sticky video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#05070a}
+.box-video-sticky video{
+  width:100%;
+  height:auto;
+  display:block;
+  aspect-ratio:9/16;
+  object-fit:contain;
+  object-position:center;
+  background:#05070a
+}
 .box-video-sticky figcaption{display:flex;flex-direction:column;gap:4px;padding:16px 18px}
 .box-video-sticky figcaption strong{font-size:.9rem}.box-video-sticky figcaption span{color:var(--muted);font-size:.78rem}
 .box-reflection-cards{display:grid;gap:14px}
@@ -110,7 +118,7 @@
   .box-week-list>div{grid-template-columns:90px 1fr}
   .box-origin-grid{gap:28px}.box-gloves-photo img{aspect-ratio:4/4.7}
   .box-reflection-card{padding:24px 20px}.box-reflection-card h3{font-size:1.7rem}
-  .box-video-sticky video{aspect-ratio:16/10}
+  .box-video-sticky video{aspect-ratio:9/16;height:auto;object-fit:contain}
   .box-apple-evidence img{max-height:620px}
   .box-oura-grid{grid-template-columns:1fr 1fr}.box-oura-grid strong{font-size:1.08rem}.box-oura-grid small{font-size:.7rem}
   .box-question-card blockquote{font-size:2.35rem;margin-top:42px}
